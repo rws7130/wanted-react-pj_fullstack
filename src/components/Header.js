@@ -1,33 +1,92 @@
 import styled from "styled-components";
 import styles from "./Header.module.css";
-
-
 import { useState, useEffect } from "react";
 
+const NavBar = styled.div`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+  z-index: 800;
+
+  > .MainBar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+    z-index: 800;
+
+    > nav.MainBarNav {
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      flex-direction: row;
+      > .Navtop {
+        @media (min-width: 768px) and (max-width: 991px) {
+          padding: 15px 0;
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+          height: 60px;
+          width: 100%;
+          /* padding: 15px 20px; */
+        }
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+
+        > .Navtoplogo {
+          display: flex;
+          > .MainBarhamberger {
+            margin-top: -2px;
+            margin-right: 15px;
+          }
+          > button {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+            > img {
+              width: 17px;
+              height: 14px;
+              object-fit: contain;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 function Header() {
   return (
-    <div
-      role="presentation"
-      className={styles.NavBar} //   NavBar_className__y2qGg"
-    >
-      <div className="MainBar_MainBar__40DX7" role="presentation">
-        <nav className="MainBar_MainBar_nav__kwHBF">
-          <div className="MainBar_MainBar_nav_top__wXy52">
-            <div className="MainBar_MainBar_nav_top_logo__Y_Q5D">
+    <NavBar role="presentation">
+      <div className="MainBar" role="presentation">
+        <nav className="MainBarNav">
+          <div className="Navtop">
+            <div className="Navtoplogo">
               <button
                 type="button"
                 aria-label="job category menu button"
                 data-attribute-id="gnb"
                 data-gnb-kind="jobCategoryMenu"
-                className="MainBar_hamberger__yQfei"
+                className="MainBarhamberger"
               >
-              
                 <img
                   src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ficon-menu.png&amp;w=17&amp;q=75"
                   alt="hamberger menu"
                   height="14"
-                  style="width: 17px; height: 14px; object-fit: contain;"
                 />
               </button>
               <a
@@ -110,9 +169,9 @@ function Header() {
                     <g
                       fill="none"
                       fill-rule="evenodd"
-                      font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
-                      font-size="9"
-                      font-weight="500"
+                      // font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
+                      // font-size="9"
+                      // font-weight="500"
                     >
                       <g fill="#36F">
                         <g>
@@ -170,9 +229,9 @@ function Header() {
                     <g
                       fill="none"
                       fill-rule="evenodd"
-                      font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
-                      font-size="9"
-                      font-weight="500"
+                      // font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
+                      // font-size="9"
+                      // font-weight="500"
                     >
                       <g fill="#36F">
                         <g>
@@ -215,7 +274,7 @@ function Header() {
                     height="18"
                     viewBox="0 0 18 18"
                   > */}
-                    {/* <defs>
+                  {/* <defs>
                       <path
                         id="qt2dnsql4a"
                         d="M15.727 17.273a.563.563 0 10.796-.796l-4.875-4.875-.19-.165a.563.563 0 00-.764.028 5.063 5.063 0 111.261-2.068.562.562 0 101.073.338 6.188 6.188 0 10-1.943 2.894l4.642 4.644z"
@@ -272,7 +331,7 @@ function Header() {
           </aside>
         </nav>
       </div>
-    </div>
+    </NavBar>
   );
 }
 export default Header;

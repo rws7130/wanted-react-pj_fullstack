@@ -8,7 +8,7 @@ import styles from "./SimpleSlider.module.css";
 import "./slick.css";
 import "./slick-theme.css";
 import { useEffect, useState } from "react";
-import { HiMenuAlt3 } from "react-icons/hi";
+
 
 const Mainslider = [
   {
@@ -110,8 +110,8 @@ const Mainslider = [
 
 export function SimpleSlider() {
   const settings = {
-    prevArrow: <PreviousBtn />,
-    nextArrow: <NextBtn />,
+    // prevArrow: <PreviousBtn />,
+    // nextArrow: <NextBtn />,
     dots: false,
     infinite: true,
     speed: 270,
@@ -175,14 +175,12 @@ export function SimpleSlider() {
               <div>
                 <div className={styles["img_wrap"]}>
                   <img
-                    src={evendata.evenimg}
+                    src={evendata.linkImg}
                     alt=""
-                    className={styles.evenimg}
+                    className={styles.linkImg}
                   />
                 </div>
-                <strong>{evendata.eventitle}</strong>
-                <br></br>
-                <span>{evendata.evendate}</span>
+             
               </div>
             </div>
           ))}

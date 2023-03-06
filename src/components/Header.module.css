@@ -1,6 +1,25 @@
-.NavBar { 
-    position: fixed;
-    padding-right: initial;
+.NavBar {
+  position: fixed;
+  padding-right: initial;
 }
 
+element.style {
+  position: fixed;
+  padding-right: initial;
+}
+.NavBar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+  z-index: 800;
+}
 
+@media (min-width: 1200px) {
+  .MainBar_MainBar__40DX7 {
+    margin: 0 auto;
+    height: 50px;
+  }
+}

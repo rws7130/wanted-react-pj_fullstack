@@ -10,7 +10,7 @@ import SimpleSlider from "../components/SimpleSlider";
 function Main() {
   return (
     <>
-      {/* <Header></Header> */}
+      <Header></Header>
       <SimpleSlider></SimpleSlider>
     </>
   );
