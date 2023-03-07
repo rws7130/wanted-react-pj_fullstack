@@ -1,6 +1,71 @@
-.NavBar { 
-    position: fixed;
-    padding-right: initial;
+.NavBar {
+  position: fixed;
+  padding-right: initial;
 }
 
+element.style {
+  position: fixed;
+  padding-right: initial;
+}
+.NavBar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+  z-index: 800;
+}
 
+@media (min-width: 1200px) {
+  .MainBar_MainBar__40DX7 {
+    margin: 0 auto;
+    height: 50px;
+  }
+}
+
+/* header부분포함 */
+a,
+a:active,
+a:hover,
+a:visited {
+  color: inherit;
+}
+
+a {
+  font-family: inherit;
+  text-decoration: inherit;
+  cursor: pointer;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}

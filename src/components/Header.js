@@ -1,38 +1,252 @@
 import styled from "styled-components";
 import styles from "./Header.module.css";
-
-
 import { useState, useEffect } from "react";
 
+const NavBarStyle = styled.div`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+  z-index: 800;
+
+  > .MainBar {
+    @media (min-width: 1200px) {
+      margin: 0 auto;
+      height: 50px;
+      width: 87.72%;
+    }
+    position: relative;
+    max-width: 1060px;
+
+    > nav.MainBarNav {
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      flex-direction: row;
+      > .Navtop {
+        @media (min-width: 768px) and (max-width: 991px) {
+          padding: 15px 0;
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+          height: 60px;
+          width: 100%;
+          /* padding: 15px 20px; */
+        }
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+
+        > .Navtoplogo {
+          display: flex;
+          > .MainBarhamberger {
+            margin-top: -2px;
+            margin-right: 15px;
+          }
+          > button {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+
+            > img {
+              width: 17px;
+              height: 14px;
+              object-fit: contain;
+              vertical-align: middle;
+            }
+          }
+          > .wantedlogo {
+            display: block;
+          }
+        }
+        > #HeaderBtn {
+          display: none;
+          color: #36f;
+          font-size: 14px;
+          line-height: 32px;
+          height: 34px;
+          border: 1px solid #36f;
+          border-radius: 17px;
+          padding: 0 14px;
+        }
+      }
+      > ul.Headermenu {
+        height: inherit;
+        text-align: center;
+        margin: 0;
+
+        > .HomeButton {
+          @media (min-width: 1200px) {
+            display: none;
+          }
+          > a {
+            padding-left: 20px;
+          }
+        }
+        > .sizedownmenu {
+          /* -webkit-box-shadow: inset 0 -2px #258bf7; */
+          box-shadow: inset 0 -2px #258bf7;
+        }
+        > li {
+          height: inherit;
+          display: inline-block;
+          > a {
+            /* padding-left: 20px;  위에 a랑 똑같은 코드위치지만 이부분은 적용안됨-> 위에적용*/
+            position: relative;
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 600;
+            padding: 15px;
+            display: inline-block;
+            > span {
+              position: absolute;
+              top: 10px;
+              right: -7px;
+              pointer-events: none;
+            }
+          }
+        }
+        > li:after {
+          height: 100%;
+          content: "";
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      > ul.Headermenu {
+        @media (min-width: 768px) and (max-width: 991px) {
+          -ms-flex-pack: start;
+          justify-content: flex-start;
+          margin-right: 30px;
+        }
+      }
+      > ul.Headermenu {
+        @media (max-width: 767px) {
+          text-align: left;
+        }
+      }
+      > ul.Headermenu {
+        @media (min-width: 992px) and (max-width: 1100px) {
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex: 1 1;
+          flex: 1 1;
+          -ms-flex-pack: distribute;
+          justify-content: space-around;
+          -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+        }
+      }
+      > aside.Mainaside {
+        height: 100%;
+        padding: 10px 0;
+        > ul {
+          height: 100%;
+          margin: 0;
+
+          > li > * {
+            /*적용됨  */
+            height: 100%;
+            padding: 0 5px;
+            font-size: 14px;
+            color: #333;
+            font-weight: 600;
+            line-height: 1;
+            @media (min-width: 1200px) {
+              padding: 0 10px;
+            }
+          }
+          > li.headerRightDiv {
+            display: inline-flex;
+            a.dashboardButton {
+              font-size: 13px;
+              color: #666;
+              line-height: 30px;
+              height: 30px;
+              border: 1px solid #e1e2e3;
+              border-radius: 15px;
+              padding: 0 10px;
+              margin-left: 15px;
+              font-weight: 400;
+            }
+          }
+          > li.headerRightDiv:before {
+            /*적용됨 */
+            display: block;
+            content: "";
+            width: 1px;
+            height: 10px;
+            background-color: #e1e2e3;
+            margin: auto 10px;
+          }
+          > li {
+            position: relative;
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            a {
+              display: inline-block;
+              vertical-align: bottom;
+              line-height: 32px;
+            }
+          }
+
+          > button.searchButton {
+            position: relative;
+            margin-top: 5px;
+          }
+          > button.HeaderButton {
+            margin-right: 6px;
+            line-height: 1.4;
+          }
+          > li.headerDotMenu {
+            @media (min-width: 1200px) {
+              display: none !important;
+              > button.menuButton {
+                margin-right: 10px;
+                padding-left: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 function Header() {
   return (
-    <div
-      role="presentation"
-      className={styles.NavBar} //   NavBar_className__y2qGg"
-    >
-      <div className="MainBar_MainBar__40DX7" role="presentation">
-        <nav className="MainBar_MainBar_nav__kwHBF">
-          <div className="MainBar_MainBar_nav_top__wXy52">
-            <div className="MainBar_MainBar_nav_top_logo__Y_Q5D">
+    <NavBarStyle role="presentation">
+      <div className="MainBar" role="presentation">
+        <nav className="MainBarNav">
+          <div className="Navtop">
+            <div className="Navtoplogo">
               <button
                 type="button"
                 aria-label="job category menu button"
                 data-attribute-id="gnb"
                 data-gnb-kind="jobCategoryMenu"
-                className="MainBar_hamberger__yQfei"
+                className="MainBarhamberger"
               >
-              
                 <img
                   src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ficon-menu.png&amp;w=17&amp;q=75"
                   alt="hamberger menu"
                   height="14"
-                  style="width: 17px; height: 14px; object-fit: contain;"
                 />
               </button>
               <a
                 href="/"
-                className="MainBar_MainBar_logo__bGymr"
+                className="wantedlogo"
                 aria-label="home link"
                 data-attribute-id="gnb"
                 data-gnb-kind="home"
@@ -46,7 +260,7 @@ function Header() {
               </a>
             </div>
             <button
-              id="gnbSignupBtn"
+              id="HeaderBtn"
               className="xsSignUpButton"
               type="button"
               data-attribute-id="gnb"
@@ -55,9 +269,9 @@ function Header() {
               회원가입하기
             </button>
           </div>
-          <ul className="Menu_classNameName__gGcYQ">
+          <ul className="Headermenu">
             <li
-              className="xsHomeButton xsOnly selectedNav"
+              className="HomeButton sizedownmenu"
               data-attribute-id="gnb"
               data-gnb-kind="home"
             >
@@ -110,9 +324,9 @@ function Header() {
                     <g
                       fill="none"
                       fill-rule="evenodd"
-                      font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
-                      font-size="9"
-                      font-weight="500"
+                      // font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
+                      // font-size="9"
+                      // font-weight="500"
                     >
                       <g fill="#36F">
                         <g>
@@ -170,9 +384,9 @@ function Header() {
                     <g
                       fill="none"
                       fill-rule="evenodd"
-                      font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
-                      font-size="9"
-                      font-weight="500"
+                      // font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
+                      // font-size="9"
+                      // font-weight="500"
                     >
                       <g fill="#36F">
                         <g>
@@ -199,7 +413,7 @@ function Header() {
               </a>
             </li>
           </ul>
-          <aside className="Aside_classNameName___e5Bi">
+          <aside className="Mainaside">
             <ul>
               <li>
                 <button
@@ -215,7 +429,7 @@ function Header() {
                     height="18"
                     viewBox="0 0 18 18"
                   > */}
-                    {/* <defs>
+                  {/* <defs>
                       <path
                         id="qt2dnsql4a"
                         d="M15.727 17.273a.563.563 0 10.796-.796l-4.875-4.875-.19-.165a.563.563 0 00-.764.028 5.063 5.063 0 111.261-2.068.562.562 0 101.073.338 6.188 6.188 0 10-1.943 2.894l4.642 4.644z"
@@ -235,7 +449,7 @@ function Header() {
               </li>
               <li>
                 <button
-                  className="signUpButton"
+                  className="HeaderButton"
                   type="button"
                   data-attribute-id="gnb"
                   data-gnb-kind="signupLogin"
@@ -244,7 +458,7 @@ function Header() {
                 </button>
               </li>
               <li
-                className="mdMoreVisible leftDivision"
+                className="headerRightDiv"
                 data-attribute-id="gnb"
                 data-gnb-kind="forEmployers"
               >
@@ -252,7 +466,7 @@ function Header() {
                   기업 서비스
                 </a>
               </li>
-              <li className="Aside_visibleMenu__Dki9n">
+              <li className="headerDotMenu">
                 <button
                   className="menuButton"
                   type="button"
@@ -268,11 +482,11 @@ function Header() {
                 </button>
               </li>
             </ul>
-            <div className="Aside_visibleMenu__Dki9n"></div>
+            <div className="headerDotMenu"></div>
           </aside>
         </nav>
       </div>
-    </div>
+    </NavBarStyle>
   );
 }
 export default Header;

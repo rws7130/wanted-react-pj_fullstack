@@ -8,7 +8,7 @@ import styles from "./SimpleSlider.module.css";
 import "./slick.css";
 import "./slick-theme.css";
 import { useEffect, useState } from "react";
-import { HiMenuAlt3 } from "react-icons/hi";
+// import { HiMenuAlt3 } from "react-icons/hi";
 
 const Mainslider = [
   {
@@ -59,7 +59,6 @@ const Mainslider = [
     linkImg:
       "https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fbanners%2F1958%2Fb670c991.jpg&w=1060&q=100",
   },
-
 ];
 //
 
@@ -108,19 +107,27 @@ const Mainslider = [
   } */
 // `;
 
+const TopBannerStyle = styled.div`
+  @media (min-width: 1200px) {
+    height: auto;
+  }
+  position: relative;
+  overflow: hidden;
+`;
+
 export function SimpleSlider() {
   const settings = {
-    prevArrow: <PreviousBtn />,
-    nextArrow: <NextBtn />,
+    // prevArrow: <PreviousBtn />,
+    // nextArrow: <NextBtn />,
     dots: false,
     infinite: true,
     speed: 270,
     // slidesToShow: 5,
     slidesToShow: 1,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
     arrows: true,
     // centerMode:true,
-    centerPadding: "0px",
+    // centerPadding: "0px",
 
     // prevArrow: "<button type='button' class='slick-prev'>Previous</button>", // 이전 화살표 모양 설정
     // nextArrow: "<button type='button' class='slick-next'>Next</button>",
@@ -163,32 +170,25 @@ export function SimpleSlider() {
   // }
 
   return (
-    <>
-      <div className={styles.topbanner}>
-        <Slider {...settings}>
-          
-          {Mainslider.map((evendata) => (
-            <div
-              className={styles["swiper-slide"]}
-              // style="width: 310.667px; margin-right: 24px;"
-            >
-              <div>
-                <div className={styles["img_wrap"]}>
-                  <img
-                    src={evendata.evenimg}
-                    alt=""
-                    className={styles.evenimg}
-                  />
-                </div>
-                <strong>{evendata.eventitle}</strong>
-                <br></br>
-                <span>{evendata.evendate}</span>
+    <TopBannerStyle>
+      <Slider {...settings}>
+        {Mainslider.map((evendata) => (
+          <div
+            className={styles["swiper-slide"]}
+            // style="width: 310.667px; margin-right: 24px;"
+          >
+            <div>
+              <div className={styles["img_wrap"]}>
+                <img src={evendata.linkImg} alt="" className={styles.linkImg} />
               </div>
+              <strong>{evendata.eventitle}</strong>
+              <br></br>
+              <span>{evendata.evendate}</span>
             </div>
-          ))}
-        </Slider>
-      </div>
-    </>
+          </div>
+        ))}
+      </Slider>
+    </TopBannerStyle>
   );
 }
 
