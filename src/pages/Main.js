@@ -19,11 +19,16 @@ const MainPageStyle = styled.div`
 function Main() {
   return (
     <>
+<<<<<<< HEAD
       <MainPageStyle>
         <Header></Header>
         <SimpleSlider></SimpleSlider>
         <MainSection></MainSection>
       </MainPageStyle>
+=======
+      <Header></Header>
+      <SimpleSlider></SimpleSlider>
+>>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
     </>
   );
 }

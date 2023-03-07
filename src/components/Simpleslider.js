@@ -8,7 +8,11 @@ import styles from "./SimpleSlider.module.css";
 import "./slick.css";
 import "./slick-theme.css";
 import { useEffect, useState } from "react";
+<<<<<<< HEAD
 // import { HiMenuAlt3 } from "react-icons/hi";
+=======
+
+>>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
 
 const Mainslider = [
   {
@@ -170,6 +174,7 @@ export function SimpleSlider() {
   // }
 
   return (
+<<<<<<< HEAD
     <TopBannerStyle>
       <Slider {...settings}>
         {Mainslider.map((evendata) => (
@@ -180,6 +185,26 @@ export function SimpleSlider() {
             <div>
               <div className={styles["img_wrap"]}>
                 <img src={evendata.linkImg} alt="" className={styles.linkImg} />
+=======
+    <>
+      <div className={styles.topbanner}>
+        <Slider {...settings}>
+          
+          {Mainslider.map((evendata) => (
+            <div
+              className={styles["swiper-slide"]}
+              // style="width: 310.667px; margin-right: 24px;"
+            >
+              <div>
+                <div className={styles["img_wrap"]}>
+                  <img
+                    src={evendata.linkImg}
+                    alt=""
+                    className={styles.linkImg}
+                  />
+                </div>
+             
+>>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
               </div>
               <strong>{evendata.eventitle}</strong>
               <br></br>

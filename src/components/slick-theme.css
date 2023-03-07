@@ -16,23 +16,29 @@
 /* Arrows */
 .slick-prev,
 .slick-next {
+<<<<<<< HEAD
   /* font-size: 0;
     line-height: 0;
+=======
+  font-size: 0;
+  line-height: 0;
+>>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
 
-    position: absolute;
-    top: 50%;
+  position: absolute;
+  top: 50%;
 
-    display: block;
+  display: block;
 
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
 
-    cursor: pointer;
+  cursor: pointer;
 
+<<<<<<< HEAD
     color: transparent;
     border: none;
     outline: none;
@@ -49,6 +55,12 @@
   background-color: rgb(255, 255, 255);
   font-size: 16px;
   z-index: 10;
+=======
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+>>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
 }
 .slick-prev:hover,
 .slick-prev:focus,
@@ -84,7 +96,10 @@
 
 .slick-prev {
   left: -25px;
+<<<<<<< HEAD
   left: calc((100% - 1210px) / 2);
+=======
+>>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
 }
 [dir="rtl"] .slick-prev {
   right: -25px;
@@ -99,7 +114,10 @@
 
 .slick-next {
   right: -25px;
+<<<<<<< HEAD
   right: calc((100% - 1200px)/2);
+=======
+>>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
 }
 [dir="rtl"] .slick-next {
   right: auto;
