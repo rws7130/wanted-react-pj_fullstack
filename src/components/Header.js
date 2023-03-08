@@ -2,11 +2,7 @@ import styled from "styled-components";
 import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
 
-<<<<<<< HEAD
 const NavBarStyle = styled.div`
-=======
-const NavBar = styled.div`
->>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
   width: 100%;
   position: fixed;
   top: 0;
@@ -16,7 +12,6 @@ const NavBar = styled.div`
   z-index: 800;
 
   > .MainBar {
-<<<<<<< HEAD
     @media (min-width: 1200px) {
       margin: 0 auto;
       height: 50px;
@@ -24,15 +19,6 @@ const NavBar = styled.div`
     }
     position: relative;
     max-width: 1060px;
-=======
-    width: 100%;
-    position: fixed;
-    top: 0;
-    background-color: #fff;
-    -webkit-box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
-    box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
-    z-index: 800;
->>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
 
     > nav.MainBarNav {
       display: flex;
@@ -70,10 +56,7 @@ const NavBar = styled.div`
             background: none;
             cursor: pointer;
             font-family: inherit;
-<<<<<<< HEAD
 
-=======
->>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
             > img {
               width: 17px;
               height: 14px;
@@ -81,7 +64,6 @@ const NavBar = styled.div`
               vertical-align: middle;
             }
           }
-<<<<<<< HEAD
           > .wantedlogo {
             display: block;
           }
@@ -236,8 +218,6 @@ const NavBar = styled.div`
               }
             }
           }
-=======
->>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
         }
       }
     }
@@ -246,11 +226,7 @@ const NavBar = styled.div`
 
 function Header() {
   return (
-<<<<<<< HEAD
     <NavBarStyle role="presentation">
-=======
-    <NavBar role="presentation">
->>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
       <div className="MainBar" role="presentation">
         <nav className="MainBarNav">
           <div className="Navtop">
@@ -510,11 +486,7 @@ function Header() {
           </aside>
         </nav>
       </div>
-<<<<<<< HEAD
     </NavBarStyle>
-=======
-    </NavBar>
->>>>>>> 2aaae1cd3c870aa239e0aded804c4a5eb304a606
   );
 }
 export default Header;
