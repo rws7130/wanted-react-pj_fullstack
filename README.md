@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+참고> https://softsquared.notion.site/fef0e0faed5e451f9b103ee326e48cee
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+클라이언트 개발일지 가이드
 
-In the project directory, you can run:
+git commit과 동일하게 매일 개발일지를 작성하셔야합니다. 일지 작성은 readme.md 파일에 작성을 해주시면 됩니다. (노션 등 다른 툴을 사용하셔도 됩니다. 다만, 링크가 개발팀장님과 공유되어야합
 
-### `npm start`
+softsquared.notion.site
+새벽의 개발일지
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2023-03-04 진행상황 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- vscode cra 설치시 npm 으로 하다가 안되어서 npx로 해서 해결
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2023-03-05 진행상황 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- emmet이 적용방법 까먹어서 찾아봐서 다시적용
 
-### `npm run eject`
+- 템플릿공부
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 라이징테스트이해
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- github
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+참고> https://github.com/orgs/community/discussions/23135
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+Nothing to commit, working tree clean · community · Discussion #23135
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Hello! I’m just starting using Git and GitHub so please be patient with me as I really want to learn :slight_smile: So the problem is: my local and remote depository has been already linked. My fir...
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+github.com
+https://blog.csdn.net/kokunka/article/details/122710639
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+将本地的项目添加到gitee（码云）仓库的报错集_kokunka的博客-CSDN博客
 
-### Analyzing the Bundle Size
+1. 在git commit -m ‘自己的信息’ 之后，显示如下错误: 错误原因：没有将本地内容添加至git本地暂存区中 解决方法：输入git add .然后再次执行报错前的语句。 2.输入git push origin master，显示如下错
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+blog.csdn.net
+https://velog.io/@cgw7976/giruboyGit-LF-will-be-replaced-by-CRLF-the-next-time-Git-touches-it
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[giruboy][Git] "LF will be replaced by CRLF the next time Git touches it"
 
-### Advanced Configuration
+git bash로 파일 add 과정 중 다음과 같은 에러가 발생하였다.왜 발생할까?mac 또는 linux를 쓰는 개발자와 windows를 쓰는 개발자가 Git을 협업할 때 발생하는 Whitespace 에러다.windows에서는 Carriage Return(CR,
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+velog.io
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+2023-03-06 진행상황 
 
-### `npm run build` fails to minify
+- main 페이지/ slider 작업중입니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- github 프로젝트만 올려봐서 다른작업에 미숙해서 다른구글링 쳐서 따라해보다가 Readme 파일이 날라갔습니다ㅜㅠ ..
+
+- 구글링하며 알아보다가 시간너무 많이들어서 t스토리에 적기로 결정했습니다. 
+
+
+
+2023-03-07 진행상황
+
+- 메인페이지 헤더완성/slider 작업중/ 나머지 항목작업중입니다.
+
+- styled-components 에 대해서 좀 더 공부하고 / styleld-components 밑에 class를 사용하는것도
+
+좀 더 익혔습니다.html 에대해서도 더 공부했습니다.
+
+- <github commit 해결>
+
+git add. -> git status 로 modified 된거 확인후 -> git commit -m 'third commit' 
+
+ 11 files changed, 621 insertions(+), 319 deletions(-) 메세지확인후 
+
+$ git push orgin master
+fatal: 'orgin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists. 
+
+등 오류가 계속나와서 구글링 계속하다가 
+
+https://stackoverflow.com/questions/32056324/there-is-no-tracking-information-for-the-current-branch
+
+
+There is no tracking information for the current branch
+
+I've been using github from a relatively short period, and I've always used the client to perform commits and pulls. I decided to try it from the git bash yesterday, and I successfully created a ne...
+
+stackoverflow.com
+https://velog.io/@2ujin/%EA%B9%83-Pull-is-not-possible-because-you-have-unmerged-files-%EC%97%90%EB%9F%AC
+
+
+[깃] Pull is not possible because you have unmerged files 에러
+
+Pull is not possible because you have unmerged files 에러
+
+velog.io
+이 2개로 해결했습니다.
+
