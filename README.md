@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+참고> https://softsquared.notion.site/fef0e0faed5e451f9b103ee326e48cee
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# 새벽의 개발일지
 
-In the project directory, you can run:
+## 2023-03-04 진행상황 
 
-### `npm start`
+- vscode cra 설치시 npm 으로 하다가 안되어서 npx로 해서 해결
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
+## 2023-03-05 진행상황 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- emmet이 적용방법 까먹어서 찾아봐서 다시적용
 
-### `npm test`
+- 템플릿공부
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 라이징테스트이해
 
-### `npm run build`
+- github
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+참고> https://github.com/orgs/community/discussions/23135
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+https://blog.csdn.net/kokunka/article/details/122710639
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+https://velog.io/@cgw7976/giruboyGit-LF-will-be-replaced-by-CRLF-the-next-time-Git-touches-it
 
-### `npm run eject`
+---
+## 2023-03-06 진행상황 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- main 페이지/ slider 작업중입니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- github 프로젝트만 올려봐서 다른작업에 미숙해서 다른구글링 쳐서 따라해보다가 Readme 파일이 날라갔습니다ㅜㅠ ..
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 구글링하며 알아보다가 시간너무 많이들어서 t스토리에 적기로 결정했습니다. 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 2023-03-07 진행상황
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 메인페이지 헤더완성/slider 작업중/ 나머지 항목작업중입니다.
 
-### Code Splitting
+- styled-components 에 대해서 좀 더 공부하고 / styleld-components 밑에 class를 사용하는것도
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+좀 더 익혔습니다.html 에대해서도 더 공부했습니다.
 
-### Analyzing the Bundle Size
+- <github commit 해결>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+git add. -> git status 로 modified 된거 확인후 -> git commit -m 'third commit' 
 
-### Making a Progressive Web App
+ 11 files changed, 621 insertions(+), 319 deletions(-) 메세지확인후 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+$ git push orgin master
+fatal: 'orgin' does not appear to be a git repository
+fatal: Could not read from remote repository.
 
-### Advanced Configuration
+Please make sure you have the correct access rights
+and the repository exists. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+등 오류가 계속나와서 구글링 계속하다가 
 
-### Deployment
+https://stackoverflow.com/questions/32056324/there-is-no-tracking-information-for-the-current-branch
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+https://velog.io/@2ujin/%EA%B9%83-Pull-is-not-possible-because-you-have-unmerged-files-%EC%97%90%EB%9F%AC
 
-### `npm run build` fails to minify
+이 2개로 해결했습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
