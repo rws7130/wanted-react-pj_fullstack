@@ -22,7 +22,7 @@
 
   display: block;
   overflow: hidden;
-
+  height: 304.77px;
   margin: 0;
   padding: 0;
 }
@@ -47,7 +47,7 @@
   position: relative;
   top: 0;
   left: 0;
-
+  height: 304.77px;
   display: block;
   margin-left: auto;
   margin-right: auto;

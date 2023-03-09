@@ -113,6 +113,7 @@ const TopBannerStyle = styled.div`
   }
   position: relative;
   overflow: hidden;
+  height: 304.77px;
 `;
 
 export function SimpleSlider() {

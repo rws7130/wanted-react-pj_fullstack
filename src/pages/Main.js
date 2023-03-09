@@ -8,13 +8,16 @@ import styled from "styled-components";
 import MainSection from "../components/MainSection";
 import Mainbody from "../components/Mainbody";
 import MainLineBanner from "../components/MainLineBanner";
+import MainEvent from "../components/MainEvent";
+import MainbfFooter from "../components/MainbfFooter";
+import Footer from "../components/Footer";
 
 const MainPageStyle = styled.div`
   @media (min-width: 1200px) {
-    padding-top: 25px;
+    padding-top: 75px;
   }
   background-color: #fff;
-  width: 1688px;
+  /* width: 1688px; */
   height: 3000px;
 `;
 
@@ -38,8 +41,8 @@ const DividerRootStyle = styled.hr`
 function Main() {
   return (
     <>
+      <Header></Header>
       <MainPageStyle>
-        <Header></Header>
         <SimpleSlider></SimpleSlider>
         <MainSection></MainSection>
         <Mainbody />
@@ -47,6 +50,12 @@ function Main() {
           <DividerRootStyle />
         </DividerContainerStyle>
         <MainLineBanner />
+        <MainEvent></MainEvent>
+        <DividerContainerStyle>
+          <DividerRootStyle />
+        </DividerContainerStyle>
+        <MainbfFooter></MainbfFooter>
+        <Footer></Footer>
       </MainPageStyle>
     </>
   );
