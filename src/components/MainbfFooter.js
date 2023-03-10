@@ -193,13 +193,13 @@ function MainbfFooter() {
                     id="IconProfileThick-a"
                   ></path>
                 </defs>
-                <g fill="none" fill-rule="evenodd">
+                <g fill="none" fillRule="evenodd">
                   <mask id="IconProfileThick-b" fill="#fff">
                     {/* <use xlink:href="#IconProfileThick-a"></use> */}
                   </mask>
                   <use
                     fill="#333"
-                    fill-rule="nonzero"
+                    fillRule="nonzero"
                     // xlink:href="#IconProfileThick-a"
                   ></use>
                   <g mask="url(#IconProfileThick-b)" fill="#333">
@@ -247,13 +247,13 @@ function MainbfFooter() {
                     id="building-icon-a"
                   ></path>
                 </defs>
-                <g fill="none" fill-rule="evenodd">
+                <g fill="none" fillRule="evenodd">
                   <mask id="building-icon-b" fill="#fff">
                     {/* <use xlink:href="#building-icon-a"></use> */}
                   </mask>
                   <use
                     fill="#333"
-                    fill-rule="nonzero"
+                    fillRule="nonzero"
                     // xlink:href="#building-icon-a"
                   ></use>
                   <g mask="url(#building-icon-b)" fill="#333">

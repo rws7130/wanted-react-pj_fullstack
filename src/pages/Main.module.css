@@ -41,9 +41,9 @@ a:visited {
   color: inherit;
 }
 a {
-    font-family: inherit;
-    text-decoration: inherit;
-    cursor: pointer;
+  font-family: inherit;
+  text-decoration: inherit;
+  cursor: pointer;
 }
 
 /*  */
@@ -78,4 +78,11 @@ menu,
 nav,
 section {
   display: block;
+}
+
+* {
+  font-family: Pretendard, "Pretendard JP", "Pretendard Std", -apple-system,
+    system-ui, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial,
+    "Apple SD Gothic Neo", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }

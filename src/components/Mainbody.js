@@ -69,7 +69,7 @@ function Mainbody() {
       <div
         className="type-test-row"
         role="button"
-        tabindex="0"
+        tabIndex="0"
         data-attribute-id="typeTest__enter__click"
         data-page-path="/"
       >

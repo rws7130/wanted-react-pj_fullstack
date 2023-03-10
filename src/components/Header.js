@@ -1,6 +1,12 @@
 import styled from "styled-components";
-import styles from "./Header.module.css";
+// import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
+
+import Login from "../pages/Login";
+
+import {useNavigate} from 'react-router-dom';
+
+
 
 const NavBarStyle = styled.div`
   width: 100%;
@@ -10,6 +16,7 @@ const NavBarStyle = styled.div`
   -webkit-box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
   box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
   z-index: 800;
+
 
   > .MainBar {
     @media (min-width: 1200px) {
@@ -225,6 +232,13 @@ const NavBarStyle = styled.div`
 `;
 
 function Header() {
+
+
+  const navigate = useNavigate();
+  const goLogin = () => { 
+    navigate("/Login");
+  };
+
   return (
     <NavBarStyle role="presentation">
       <div className="MainBar" role="presentation">
@@ -323,7 +337,7 @@ function Header() {
                   >
                     <g
                       fill="none"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       // font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
                       // font-size="9"
                       // font-weight="500"
@@ -383,7 +397,7 @@ function Header() {
                   >
                     <g
                       fill="none"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       // font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
                       // font-size="9"
                       // font-weight="500"
@@ -435,10 +449,10 @@ function Header() {
                         d="M15.727 17.273a.563.563 0 10.796-.796l-4.875-4.875-.19-.165a.563.563 0 00-.764.028 5.063 5.063 0 111.261-2.068.562.562 0 101.073.338 6.188 6.188 0 10-1.943 2.894l4.642 4.644z"
                       ></path>
                     </defs>
-                    <g fill="none" fill-rule="evenodd">
+                    <g fill="none" fillRule="evenodd">
                       <use
                         fill="#333"
-                        fill-rule="nonzero"
+                        fillRule="nonzero"
                         stroke="#333"
                         stroke-width=".3"
                         xlink:href="#qt2dnsql4a"
@@ -453,6 +467,7 @@ function Header() {
                   type="button"
                   data-attribute-id="gnb"
                   data-gnb-kind="signupLogin"
+                  onClick={goLogin}
                 >
                   회원가입/로그인
                 </button>
