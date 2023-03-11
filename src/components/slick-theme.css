@@ -49,6 +49,8 @@
   background-color: rgb(255, 255, 255);
   font-size: 16px;
   z-index: 10;
+  /*  */
+  
 }
 .slick-prev:hover,
 .slick-prev:focus,
@@ -70,6 +72,19 @@
   font-size: 16px;
   z-index: 10;
 }
+
+.slick-next:hover {
+  background: rgba(255, 255, 255, 0.8)
+    url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
+    13px scroll no-repeat;
+  transform: rotate(-180deg);
+}
+.slick-prev:hover {
+  background: rgba(255, 255, 255, 0.8)
+    url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
+    13px scroll no-repeat;
+}
+
 .slick-prev:hover:before,
 .slick-prev:focus:before,
 .slick-next:hover:before,
@@ -97,36 +112,49 @@
 .slick-prev {
   left: -25px;
   left: calc((100% - 1210px) / 2);
+  background: rgba(255, 255, 255, 0.8)
+    url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
+    13px scroll no-repeat;
 }
 [dir="rtl"] .slick-prev {
   right: -25px;
   left: auto;
 }
 .slick-prev:before {
-  content: "←";
 }
 [dir="rtl"] .slick-prev:before {
-  content: "→";
+  /* content: "→"; */
 }
 
 .slick-next {
   right: -25px;
   right: calc((100% - 1200px) / 2);
+  background: rgba(255, 255, 255, 0.8)
+    url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
+    13px scroll no-repeat;
+  transform: rotate(-180deg);
 }
 [dir="rtl"] .slick-next {
   right: auto;
   left: -25px;
 }
 .slick-next:before {
-  content: "→";
 }
 [dir="rtl"] .slick-next:before {
-  content: "←";
+  /* content: "←"; */
 }
 
 /* Dots */
 .slick-dotted.slick-slider {
   margin-bottom: 30px;
+}
+
+@media (min-width: 1200px) {
+  .slick-slide {
+    padding: 0 12px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+  }
 }
 
 .slick-dots {

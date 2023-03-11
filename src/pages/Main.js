@@ -3,7 +3,7 @@ import Header from "../components/Header";
 
 // import Exam from "../components/Exam";
 
-import SimpleSlider from "../components/SimpleSlider";
+// import SimpleSlider from "../components/SimpleSlider";
 import styled from "styled-components";
 import MainSection from "../components/MainSection";
 import Mainbody from "../components/Mainbody";
@@ -11,6 +11,7 @@ import MainLineBanner from "../components/MainLineBanner";
 import MainEvent from "../components/MainEvent";
 import MainbfFooter from "../components/MainbfFooter";
 import Footer from "../components/Footer";
+import Slider from "../components/Slider";
 
 const MainPageStyle = styled.div`
   @media (min-width: 1200px) {
@@ -43,7 +44,8 @@ function Main() {
     <>
       <Header></Header>
       <MainPageStyle>
-        <SimpleSlider></SimpleSlider>
+        {/* <SimpleSlider></SimpleSlider> */}
+        <Slider></Slider>
         <MainSection></MainSection>
         <Mainbody />
         <DividerContainerStyle>

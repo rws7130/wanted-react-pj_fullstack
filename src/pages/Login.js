@@ -1,16 +1,22 @@
 import styled from "styled-components";
-// import styles from "./Header.module.css";
+import styles from "./Login.module.css";
 import { useState, useEffect } from "react";
 //
 import { BsFacebook } from "react-icons/bs";
 import { RiAppleLine } from "react-icons/ri";
 import { FcGoogle } from "react-icons/fc";
 import { ImBubble } from "react-icons/im";
+import { useNavigate } from "react-router-dom";
 const PageLogin = styled.div`
   width: 100%;
   height: 100%;
-  background-color: var(--theme-palette-colors-base-bg);
+  background-color: #f7f7f7;
   display: flex;
+  //
+
+  justify-content: center;
+
+  align-items: center;
   div.login-container {
     max-width: 400px;
     width: 100%;
@@ -24,27 +30,33 @@ const PageLogin = styled.div`
       max-height: calc(100vh - 100px);
       overflow: auto;
       flex-direction: column;
-      background-color: var(--theme-palette-colors-contents-bg);
-      border: 1px solid var(--theme-palette-colors-bluegray-200);
+      background-color: #fff;
+      border: 1px solid #e1e2e3;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
       div.container-inner2 {
         overflow: auto;
         position: relative;
         padding: 20px;
         div.wanted-logo {
-          display: flex;
+          /* display: flex; */
 
           justify-content: center;
 
           align-items: center;
-          margin: 0 auto;
+          /* margin: 0 auto;
           margin-bottom: 30px;
-          padding-top: 56px;
+          padding-top: 56px; */
           span.login-wanted-logo {
             display: flex;
 
             align-items: inherit;
 
             justify-content: inherit;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            padding-top: 56px;
             svg.login-wanted-svg {
               display: inline-block;
               fill: currentColor;
@@ -58,34 +70,32 @@ const PageLogin = styled.div`
           }
           form {
             h1.login-form {
-              color: var(--theme-palette-colors-black-100);
-              font-weight: var(--text-weight-subtitle-bold);
+              color: #000;
+              font-weight: 700;
               text-align: center;
-              letter-spacing: var(--text-spacing-subtitle);
-              font-size: var(--text-size-subtitle);
-              line-height: var(--text-height-subtitle);
-              --text-size-subtitle: 24px;
-              --text-height-subtitle: 32px;
-              --text-spacing-subtitle: -0.023em;
+              letter-spacing: -0.023em;
+              font-size: 24px;
+              line-height: 32px;
             }
             h2.login-form-h2 {
-              color: var(--theme-palette-colors-gray-600);
-              font-weight: var(--text-weight-subhead-normal);
+              color: #888;
+              font-weight: 400;
               text-align: center;
-              letter-spacing: var(--text-spacing-subhead);
-              font-size: var(--text-size-subhead);
-              line-height: var(--text-height-subhead);
+              letter-spacing: 0.145em;
+              font-size: 14px;
+              line-height: 20px;
               margin-bottom: 45px;
+              margin-top: 20px;
             }
             div.form-email {
               margin: 17px 0px 7px;
               label.form-email-label {
-                color: var(--theme-palette-colors-gray-600);
-                font-weight: var(--text-weight-subhead-bold);
+                color: #888;
+                font-weight: 600;
                 text-align: left;
-                letter-spacing: var(--text-spacing-subhead);
-                font-size: var(--text-size-subhead);
-                line-height: var(--text-height-subhead);
+                letter-spacing: 0.0145em;
+                font-size: 14px;
+                line-height: 20px;
               }
             }
             input.form-input {
@@ -95,8 +105,8 @@ const PageLogin = styled.div`
               padding: 0px 12px;
               outline: none;
               background-color: transparent;
-              border: 1px solid var(--theme-palette-colors-bluegray-200);
-              color: var(--theme-palette-colors-gray-900);
+              border: 1px solid #e1e2e3;
+              color: transparent;
               border-radius: 5px;
               font-size: 16px;
               font-weight: 400;
@@ -110,31 +120,34 @@ const PageLogin = styled.div`
               font-size: 16px;
               margin-bottom: 10px;
               cursor: pointer;
-              background-color: var(--theme-palette-colors-blue-400);
+              background-color: #f2f4f7;
               border: none;
               margin-top: 30px;
+              color: #ccc;
               span.form-email-btspan {
-                color: var(--theme-palette-colors-gray-300);
+                color: #ccc;
+                font-weight: 600;
               }
             }
             p.icon-ptag {
-              color: var(--theme-palette-colors-gray-600);
-              font-weight: var(--text-weight-caption2-medium);
+              color: #888;
+              font-weight: 500;
               text-align: center;
-              letter-spacing: var(--text-spacing-caption2);
-              font-size: var(--text-size-caption2);
-              line-height: var(--text-height-caption2);
+              letter-spacing: 0.031em;
+              font-size: 11px;
+              line-height: 14px;
               text-transform: capitalize;
               margin-top: 8px;
               margin-bottom: 0;
+              text-transform: capitalize;
             }
             p.form-or-p {
-              color: var(--theme-palette-colors-gray-500);
-              font-weight: var(--text-weight-caption1-bold);
+              color: #939393;
+              font-weight: 600;
               text-align: center;
-              letter-spacing: var(--text-spacing-caption1);
-              font-size: var(--text-size-caption1);
-              line-height: var(--text-height-caption1);
+              letter-spacing: 0.025em;
+              font-size: 12px;
+              line-height: 16px;
               margin-top: 5px;
               margin-bottom: 15px;
             }
@@ -153,6 +166,60 @@ const PageLogin = styled.div`
                 margin: 0;
                 max-width: 25%;
               }
+              /*  */
+              button.links-btn2 {
+                display: flex;
+                flex-direction: column;
+                -webkit-box-align: center;
+                align-items: center;
+                -webkit-box-pack: start;
+                justify-content: flex-start;
+                border: none;
+                background: none;
+                cursor: pointer;
+                padding: 0px;
+                span::after {
+                  position: relative;
+                  content: "";
+                  left: -27px;
+                  top: 0px;
+                  width: 56px;
+                  height: 56px;
+                  border-radius: 50%;
+                  border: 1px solid #e1e2e3;
+                  box-sizing: border-box;
+                }
+                span.link-icon-span {
+                  display: flex;
+                  -webkit-box-align: inherit;
+                  -ms-flex-align: inherit;
+                  align-items: inherit;
+                  -webkit-box-pack: inherit;
+                  justify-content: inherit;
+                  svg {
+                    width: 56px;
+                    height: 56px;
+
+                    z-index: 99;
+                    position: relative;
+                    left: 28px;
+                  }
+                  .svg {
+                    user-select: none;
+                    width: 1em;
+                    height: 1em;
+                    display: inline-block;
+                    fill: currentColor;
+                    -webkit-flex-shrink: 0;
+                    -ms-flex-negative: 0;
+                    flex-shrink: 0;
+                    font-size: inherit;
+                    width: 56px;
+                    height: 56px;
+                  }
+                }
+              }
+              /*  */
               button.links-btn1 {
                 display: flex;
                 flex-direction: column;
@@ -191,13 +258,192 @@ const PageLogin = styled.div`
                 }
               }
             }
+            button.account-login-footer {
+              background-color: transparent;
+              border: none;
+              width: 100%;
+              cursor: pointer;
+              p {
+                margin-bottom: 0;
+
+                display: inline-flex;
+
+                justify-content: center;
+
+                align-items: center;
+              }
+              p.account-login-footerp {
+                color: #767676;
+                font-weight: 600;
+                text-align: center;
+                letter-spacing: 0.0145em;
+                font-size: 14px;
+                line-height: 20px;
+                margin-top: 30px;
+                span.account-login-footerSpan {
+                  display: flex;
+
+                  align-items: inherit;
+
+                  justify-content: inherit;
+                  svg.account-login-footersvg {
+                    user-select: none;
+                    width: 1em;
+                    height: 1em;
+                    display: inline-block;
+                    fill: currentColor;
+                    -webkit-flex-shrink: 0;
+                    -ms-flex-negative: 0;
+                    flex-shrink: 0;
+                    font-size: inherit;
+                    margin-left: 3px;
+                    width: 12px;
+                    height: 12px;
+                  }
+                }
+              }
+            }
+            hr.footer-hr {
+              border: none;
+              width: 100%;
+              border-bottom: 1px solid #e1e2e3;
+              margin-top: 30px;
+              margin-bottom: 30px;
+            }
+            div.login-footer {
+              margin: 30px auto 15px auto;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              a.login-footer-a {
+                color: #767676;
+                font-weight: 600;
+                text-align: center;
+                letter-spacing: 0.0192em;
+                font-size: 13px;
+                line-height: 18px;
+              }
+              a:first-of-type {
+                margin-right: 12px;
+              }
+              a:last-child {
+                font-weight: 900;
+              }
+            }
+            p.footer-p {
+              color: #888;
+              font-weight: 400;
+              text-align: center;
+              letter-spacing: 0.025em;
+              font-size: 12px;
+              line-height: 16px;
+              margin-bottom: 30px;
+            }
+            div.login-lan-select {
+              /* height: 50px;
+              min-height: 50px;
+              border-radius: 5px;
+              width: 80%;
+              border: 1px solid var(--theme-palette-colors-bluegray-200);
+              background-color: var(--theme-palette-colors-contents-bg);
+              margin-bottom: 10px;
+              position: relative;
+              height: 34px;
+              min-height: 34px; */
+              display: flex;
+              width: 100%;
+              justify-content: center;
+              div.login-lan-selectwrap {
+                width: 140px;
+                position: relative;
+                img {
+                  position: absolute;
+                  left: 15px;
+                  top: 9px;
+                  width: 23px;
+                  height: 16px;
+                  border-radius: 2px;
+                  z-index: 1;
+                  border: 1px solid #e1e2e3;
+                }
+                div.select-div {
+                  height: 50px;
+                  min-height: 50px;
+                  border-radius: 5px;
+                  width: 100%;
+                  border: 1px solid #e1e2e3;
+                  background-color: #fff;
+                  margin-bottom: 10px;
+                  position: relative;
+                  height: 34px;
+                  min-height: 34px;
+                  div {
+                    right: 13px;
+                  }
+                  select {
+                    padding-left: 45px;
+                    font-size: 13px;
+                    font-weight: 600;
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    appearance: none;
+                    height: 100%;
+                    border: none;
+                    background: none;
+                    z-index: 1;
+                    /* font-size: 16px; */
+                    color: var(--theme-palette-colors-gray-900);
+                    /* font-weight: 400; */
+                  }
+                  div.select-footer {
+                    position: absolute;
+                    right: 20px;
+                    font-size: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    span.select-footer-img {
+                      display: flex;
+                      align-items: inherit;
+                      justify-content: inherit;
+                      svg.link-icon-svg {
+                        user-select: none;
+                        width: 1em;
+                        height: 1em;
+                        display: inline-block;
+                        fill: currentColor;
+
+                        flex-shrink: 0;
+                        font-size: inherit;
+                        path {
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
+    div.container-inner::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 function Login() {
+  const navigate = useNavigate();
+  const goFacebook = () => {
+    navigate("/Facebook");
+  };
+  const goApple = () => {
+    navigate("/Login");
+  };
+  const goGoogle = () => {
+    navigate("/Login");
+  };
+
   return (
     <>
       <PageLogin>
@@ -237,7 +483,6 @@ function Login() {
                     <label
                       data-testid="Typography"
                       color="var(--theme-palette-colors-gray-600)"
-                      for="email"
                       className="form-email-label"
                     >
                       이메일
@@ -249,7 +494,7 @@ function Login() {
                     name="email"
                     data-testid="Input_email"
                     className="form-input"
-                    value=""
+                    defaultValue=""
                   />
                   <button
                     type="submit"
@@ -272,14 +517,15 @@ function Login() {
                   >
                     또는
                   </p>
-                  <div class="form-links">
+                  <div className="form-links">
                     <button
                       type="button"
                       data-attribute-id="signupLogin__start"
                       data-method="apple"
-                      className="links-btn1 "
+                      className="links-btn1"
+                      onClick={() => window.location.href='https://appleid.apple.com/auth/authorize?scope=name%20email&response_mode=form_post&response_type=code%20id_token&client_id=com.wantedlab.wanted.web&state=BDKKHWVwJXKAJZEf&redirect_uri=https%3A%2F%2Fid-api.wanted.jobs%2Fv1%2Fproviders%2Fapple%2Fauth'}
                     >
-                      <span class="link-icon-span">
+                      <span className="link-icon-span">
                         <svg viewBox="0 0 57 56" className="link-icon-svg">
                           <path
                             d="M0.5 28C0.5 12.536 13.036 0 28.5 0C43.964 0 56.5 12.536 56.5 28C56.5 43.464 43.964 56 28.5 56C13.036 56 0.5 43.464 0.5 28Z"
@@ -303,7 +549,8 @@ function Login() {
                       type="button"
                       data-attribute-id="signupLogin__start"
                       data-method="facebook"
-                      className="links-btn1 "
+                      className="links-btn1"
+                      onClick={() => window.location.href='https://www.facebook.com/login.php?skip_api_login=1&api_key=316787678519888&kid_directed_site=0&app_id=316787678519888&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fdisplay%3Dpage%26scope%3Demail%252Cpublic_profile%252Cuser_friends%26locale%3Den_US%26client_id%3D316787678519888%26state%3DIVkdMRVUKVKhilER%26redirect_uri%3Dhttps%253A%252F%252Fid-api.wanted.jobs%252Fv1%252Fproviders%252Ffacebook%252Fauth%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3Df05b387e-2ecf-4fe1-b029-64aabe4ac3ed%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fid-api.wanted.jobs%2Fv1%2Fproviders%2Ffacebook%2Fauth%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DIVkdMRVUKVKhilER%23_%3D_&display=page&locale=ko_KR&pl_dbl=0'}
                     >
                       <span className="link-icon-span">
                         <svg viewBox="0 0 57 56" className="link-icon-svg">
@@ -312,8 +559,8 @@ function Login() {
                             fill="#1877F2"
                           ></path>
                           <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
+                            fillRule="evenodd"
+                            clipRule="evenodd"
                             d="M28.5 14.2855C20.9256 14.2855 14.7857 20.4253 14.7857 27.9997C14.7857 34.8445 19.801 40.5181 26.3578 41.5467V31.9645H22.8744V27.9997H26.3578V24.9785C26.3578 21.5417 28.404 19.6423 31.5377 19.6423C33.038 19.6423 34.607 19.9111 34.607 19.9111V23.2848H32.8776C31.1743 23.2848 30.6422 24.3421 30.6422 25.4269V27.9997H34.4465L33.839 31.9645H30.6422V41.5467C37.199 40.5181 42.2143 34.8445 42.2143 27.9997C42.2143 20.4253 36.0744 14.2855 28.5 14.2855Z"
                             fill="#fff"
                           ></path>
@@ -331,31 +578,32 @@ function Login() {
                       type="button"
                       data-attribute-id="signupLogin__start"
                       data-method="google"
-                      className="links-btn1 "
+                      className="links-btn2 "
+                      onClick={() => window.location.href='https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?response_type=code&scope=profile%20email%20openid&access_type=online&include_granted_scopes=true&client_id=792010635012-vi1rjnvg0n9d2f2noe9c74jvea78vlvs.apps.googleusercontent.com&state=UraHqWwXKtyCaKsO&redirect_uri=https%3A%2F%2Fid-api.wanted.jobs%2Fv1%2Fproviders%2Fgoogle%2Fauth&service=lso&o2v=2&flowName=GeneralOAuthFlow'}
                     >
                       <span className="link-icon-span">
                         <svg viewBox="0 0 57 56" className="link-icon-svg">
                           <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
+                            fillRule="evenodd"
+                            clipRule="evenodd"
                             d="M41.6657 28.3122C41.6657 27.34 41.5789 26.4044 41.4158 25.5068H28.5V30.8112H35.8813C35.5629 32.5255 34.5968 33.9792 33.1446 34.9514V38.3922H37.5758C40.1693 36.0044 41.6657 32.4889 41.6657 28.3122Z"
                             fill="#3D82F0"
                           ></path>
                           <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
+                            fillRule="evenodd"
+                            clipRule="evenodd"
                             d="M28.5003 41.7146C32.2032 41.7146 35.3072 40.4864 37.5761 38.3927L33.1449 34.9504C31.9167 35.7733 30.3457 36.2594 28.5003 36.2594C24.9285 36.2594 21.9053 33.8472 20.8264 30.606H16.2443V34.1595C18.5011 38.6411 23.1396 41.7146 28.5003 41.7146Z"
                             fill="#31A752"
                           ></path>
                           <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
+                            fillRule="evenodd"
+                            clipRule="evenodd"
                             d="M20.8261 30.606C20.5518 29.7831 20.3964 28.9039 20.3964 28.0002C20.3964 27.0966 20.5518 26.2174 20.8261 25.3945V21.841H16.244C15.316 23.6924 14.7857 25.7877 14.7857 28.0002C14.7857 30.2128 15.316 32.3081 16.244 34.1595L20.8261 30.606Z"
                             fill="#F9BA00"
                           ></path>
                           <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
+                            fillRule="evenodd"
+                            clipRule="evenodd"
                             d="M28.5003 19.7407C30.5133 19.7407 32.322 20.4325 33.7422 21.7917L37.6767 17.8588C35.3011 15.6447 32.1971 14.2855 28.5003 14.2855C23.1396 14.2855 18.5011 17.359 16.2443 21.842L20.8264 25.394C21.9053 22.1529 24.9285 19.7407 28.5003 19.7407Z"
                             fill="#E64234"
                           ></path>
@@ -374,6 +622,8 @@ function Login() {
                       data-attribute-id="signupLogin__start"
                       data-method="kakao"
                       className="links-btn1 "
+                      
+                      onClick={() => window.location.href='https://accounts.kakao.com/login/?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26state%3DYHLRjjNRIkdeJhhO%26redirect_uri%3Dhttps%253A%252F%252Fid-api.wanted.jobs%252Fv1%252Fproviders%252Fkakao%252Fauth%26through_account%3Dtrue%26client_id%3Dd270c6f88893a0836c4f7a578e551037#login'}
                     >
                       <span className="link-icon-span">
                         <svg viewBox="0 0 57 56" className="link-icon-svg">
@@ -382,8 +632,8 @@ function Login() {
                             fill="#FEE500"
                           ></path>
                           <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
+                            fillRule="evenodd"
+                            clipRule="evenodd"
                             d="M28.5 16.2063C21.5606 16.2063 15.9286 20.5812 15.9286 25.9617C15.9286 29.3183 18.1034 32.2474 21.4223 34.0326L20.0269 39.1492C20.0005 39.2509 20.006 39.3583 20.0424 39.4569C20.0788 39.5555 20.1446 39.6406 20.2307 39.7008C20.3169 39.761 20.4195 39.7934 20.5246 39.7937C20.6297 39.7939 20.7324 39.7621 20.8189 39.7023L26.9286 35.6417C27.444 35.6417 27.972 35.7297 28.5 35.7297C35.4394 35.7297 41.0714 31.3549 41.0714 25.9617C41.0714 20.5686 35.4394 16.2063 28.5 16.2063Z"
                             fill="#181600"
                           ></path>
@@ -398,12 +648,29 @@ function Login() {
                       </p>
                     </button>
                   </div>
-                  <button>
-                    <p>
-                      <span></span>
+                  {/*  */}
+                  <button type="button" className="account-login-footer">
+                    <p
+                      data-testid="Typography"
+                      color="var(--theme-palette-colors-gray-700)"
+                      className="account-login-footerp"
+                    >
+                      계정을 잊으셨나요?
+                      <span className="account-login-footerSpan">
+                        <svg
+                          viewBox="0 0 12 12"
+                          color="var(--theme-palette-colors-gray-600)"
+                          className="account-login-footersvg"
+                        >
+                          <path
+                            d="M3.34467 9.71967C3.05178 10.0126 3.05178 10.4874 3.34467 10.7803C3.63756 11.0732 4.11244 11.0732 4.40533 10.7803L8.65533 6.53033C8.94822 6.23744 8.94822 5.76256 8.65533 5.46967L4.40533 1.21967C4.11244 0.926777 3.63756 0.926777 3.34467 1.21967C3.05178 1.51256 3.05178 1.98744 3.34467 2.28033L7.06434 6L3.34467 9.71967Z"
+                            fill="var(--theme-palette-colors-gray-600)"
+                          ></path>
+                        </svg>
+                      </span>
                     </p>
                   </button>
-                  <hr />
+                  <hr className="footer-hr"></hr>
                   <div className="login-footer">
                     <a
                       data-testid="Typography"
@@ -451,7 +718,7 @@ function Login() {
                             <svg viewBox="0 0 10 6" className="link-icon-svg">
                               <path
                                 fillRule="evenodd"
-                                clip-rule="evenodd"
+                                clipRule="evenodd"
                                 d="M5 3.93934L1.28033 0.21967C0.987437 -0.0732233 0.512563 -0.0732233 0.21967 0.21967C-0.0732233 0.512563 -0.0732233 0.987437 0.21967 1.28033L4.46967 5.53033C4.76256 5.82322 5.23744 5.82322 5.53033 5.53033L9.78033 1.28033C10.0732 0.987437 10.0732 0.512563 9.78033 0.21967C9.48744 -0.0732233 9.01256 -0.0732233 8.71967 0.21967L5 3.93934Z"
                                 fill="var(--theme-palette-colors-gray-900)"
                               ></path>

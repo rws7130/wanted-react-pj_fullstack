@@ -4,9 +4,8 @@ import { useState, useEffect } from "react";
 
 import Login from "../pages/Login";
 
-import {useNavigate} from 'react-router-dom';
-
-
+import { useNavigate } from "react-router-dom";
+import { RxMagnifyingGlass } from "react-icons/rx";
 
 const NavBarStyle = styled.div`
   width: 100%;
@@ -16,7 +15,6 @@ const NavBarStyle = styled.div`
   -webkit-box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
   box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
   z-index: 800;
-
 
   > .MainBar {
     @media (min-width: 1200px) {
@@ -115,6 +113,14 @@ const NavBarStyle = styled.div`
             font-weight: 600;
             padding: 15px;
             display: inline-block;
+            color: #333333;
+            em {
+              position: absolute;
+              top: 10px;
+              right: -5px;
+              pointer-events: none;
+              font-style: normal;
+            }
             > span {
               position: absolute;
               top: 10px;
@@ -169,6 +175,8 @@ const NavBarStyle = styled.div`
             color: #333;
             font-weight: 600;
             line-height: 1;
+            border: none;
+            background: white;
             @media (min-width: 1200px) {
               padding: 0 10px;
             }
@@ -211,6 +219,16 @@ const NavBarStyle = styled.div`
           > button.searchButton {
             position: relative;
             margin-top: 5px;
+            svg {
+              defs {
+                path.qt2dnsql4a {
+                }
+              }
+              g {
+                use {
+                }
+              }
+            }
           }
           > button.HeaderButton {
             margin-right: 6px;
@@ -232,16 +250,43 @@ const NavBarStyle = styled.div`
 `;
 
 function Header() {
-
-
   const navigate = useNavigate();
-  const goLogin = () => { 
+  const goLogin = () => {
     navigate("/Login");
   };
 
   return (
     <NavBarStyle role="presentation">
       <div className="MainBar" role="presentation">
+        {/*  */}
+
+        {/* <div class="dropdown">
+          <button class="dropbtn">Dropdown</button>
+          <div class="dropdown-content">
+            <a href="#">직군 전체</a>
+            <a href="#">개발</a>
+            <a href="#">경영·비즈니스</a>
+            <a href="#">마케팅·광고</a>
+            <a href="#">디자인</a>
+            <a href="#">영업</a>
+            <a href="#">고객서비스·리테일</a>
+            <a href="#">게임 제작</a>
+            <a href="#">미디어</a>
+            <a href="#">HR</a>
+            <a href="#">엔지니어링·설계</a>
+            <a href="#">금융</a>
+            <a href="#">제조·생산</a>
+            <a href="#">의료·제약·바이오</a>
+            <a href="#">물류·무역</a>
+            <a href="#">교육</a>
+            <a href="#">법률·법집행기관</a>
+            <a href="#">식·음료</a>
+            <a href="#">건설·시설</a>
+            <a href="#">공공·복지</a>
+            <a href="#">공공·복지</a>
+          </div>
+        </div> */}
+
         <nav className="MainBarNav">
           <div className="Navtop">
             <div className="Navtoplogo">
@@ -252,6 +297,180 @@ function Header() {
                 data-gnb-kind="jobCategoryMenu"
                 className="MainBarhamberger"
               >
+                <section className="Explore_MainCategory__rpxri">
+                  <a href="/wdlist" className="">
+                    <em>
+                      <h2>직군 전체</h2>
+                    </em>
+                  </a>
+                  <ul>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/518" className="">
+                        <em>개발</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/507" className="">
+                        <em>경영·비즈니스</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/523" className="">
+                        <em>마케팅·광고</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/511" className="">
+                        <em>디자인</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/530" className="">
+                        <em>영업</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/510" className="">
+                        <em>고객서비스·리테일</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/959" className="">
+                        <em>게임 제작</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/524" className="">
+                        <em>미디어</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/517" className="">
+                        <em>HR</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      class="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/513" class="">
+                        <em>엔지니어링·설계</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/508" className="">
+                        <em>금융</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/522" className="">
+                        <em>제조·생산</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      class="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/515" class="">
+                        <em>의료·제약·바이오</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/532" className="">
+                        <em>물류·무역</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/10101" className="">
+                        <em>교육</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/521" className="">
+                        <em>법률·법집행기관</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/10057" className="">
+                        <em>식·음료</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/509" className="">
+                        <em>건설·시설</em>
+                      </a>
+                    </li>
+                    <li
+                      data-testid="category-item"
+                      className="Explore_CategoryItem__46TK9"
+                    >
+                      <a href="/wdlist/514" className="">
+                        <em>공공·복지</em>
+                      </a>
+                    </li>
+                    <li className="Explore_GigsCategoryItem__l4LhT">
+                      <a
+                        href="https://www.wanted.co.kr/gigs/projects"
+                        className="Explore_GigsCategoryItem_link__OlnwE"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-attribute-id="jobCategoryMenu__banner__click"
+                      >
+                        <div className="Explore_GigsCategoryItem_banner__eRpF8">
+                          <span>프리랜서</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </section>
                 <img
                   src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ficon-menu.png&amp;w=17&amp;q=75"
                   alt="hamberger menu"
@@ -289,17 +508,17 @@ function Header() {
               data-attribute-id="gnb"
               data-gnb-kind="home"
             >
-              <a href="/" className="" aria-label="">
+              <a href="/" className="">
                 홈
               </a>
             </li>
             <li className="" data-attribute-id="gnb" data-gnb-kind="jobs">
-              <a href="/jobsfeed" className="" aria-label="">
+              <a href="/jobsfeed" className="">
                 채용
               </a>
             </li>
             <li className="" data-attribute-id="gnb" data-gnb-kind="event">
-              <a href="/events" className="" aria-label="">
+              <a href="/events" className="">
                 이벤트
               </a>
             </li>
@@ -308,7 +527,7 @@ function Header() {
               data-attribute-id="gnb"
               data-gnb-kind="salary"
             >
-              <a href="/salary" className="" aria-label="">
+              <a href="/salary" className="">
                 직군별 연봉
               </a>
             </li>
@@ -317,7 +536,7 @@ function Header() {
               data-attribute-id="gnb"
               data-gnb-kind="resume"
             >
-              <a href="/cv/list" className="" aria-label="">
+              <a href="/cv/list" className="">
                 이력서
               </a>
             </li>
@@ -326,7 +545,7 @@ function Header() {
               data-attribute-id="gnb"
               data-gnb-kind="community"
             >
-              <a href="/community" className="" aria-label="">
+              <a href="/community" className="">
                 커뮤니티
                 <em>
                   <svg
@@ -374,7 +593,6 @@ function Header() {
               <a
                 href="https://www.wanted.co.kr/gigs/experts"
                 className=""
-                aria-label=""
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -386,7 +604,7 @@ function Header() {
               data-attribute-id="gnb"
               data-gnb-kind="aiScore"
             >
-              <a href="/aiscore/resume" className="" aria-label="">
+              <a href="/aiscore/resume" className="">
                 AI 합격예측
                 <span>
                   <svg
@@ -436,14 +654,14 @@ function Header() {
                   data-attribute-id="gnb"
                   data-gnb-kind="search"
                 >
-                  {/* <svg
+                  <svg
                     xmlns="https://www.w3.org/2000/svg"
-                    xmlns:xlink="https://www.w3.org/1999/xlink"
+                    xmlnsXlink="https://www.w3.org/1999/xlink"
                     width="18"
                     height="18"
                     viewBox="0 0 18 18"
-                  > */}
-                  {/* <defs>
+                  >
+                    <defs>
                       <path
                         id="qt2dnsql4a"
                         d="M15.727 17.273a.563.563 0 10.796-.796l-4.875-4.875-.19-.165a.563.563 0 00-.764.028 5.063 5.063 0 111.261-2.068.562.562 0 101.073.338 6.188 6.188 0 10-1.943 2.894l4.642 4.644z"
@@ -455,10 +673,10 @@ function Header() {
                         fillRule="nonzero"
                         stroke="#333"
                         stroke-width=".3"
-                        xlink:href="#qt2dnsql4a"
+                        xlinkHref="#qt2dnsql4a"
                       ></use>
-                    </g> */}
-                  {/* </svg> */}
+                    </g>
+                  </svg>
                 </button>
               </li>
               <li>

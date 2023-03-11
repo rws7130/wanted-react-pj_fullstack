@@ -62,6 +62,49 @@ const Mainslider = [
 ];
 //
 
+
+
+const WantedImg = [
+  "https://static.wanted.co.kr/images/banners/1489/312a0c29.jpg",
+  "https://static.wanted.co.kr/images/banners/1486/fba2df30.jpg",
+  "https://static.wanted.co.kr/images/banners/1468/3df61cbc.jpg",
+  "https://static.wanted.co.kr/images/banners/1490/0b775035.jpg",
+  "https://static.wanted.co.kr/images/banners/1484/b2853456.jpg",
+  "https://static.wanted.co.kr/images/banners/1460/619f3af7.jpg",
+  "https://static.wanted.co.kr/images/banners/1473/41f7b36e.jpg",
+  "https://static.wanted.co.kr/images/banners/1487/0d36f0b5.jpg",
+  "https://static.wanted.co.kr/images/banners/1488/baa54448.jpg",
+];
+
+const wantedTitle = [
+  "22년 달라지는 노동법령",
+  "성과를 내는 마케팅",
+  "해, 커리어 EP 02 공개",
+  "마케팅 주니어를 찾습니다",
+  "성장하는 개발자가 되려면?",
+  "개발자 성장 비결 공개!",
+  "개발자 되고 싶은 분들!?",
+  "포트폴리오를 부탁해!",
+  "UX 디자이너의 커리어 설계",
+];
+
+const wantedDes = [
+  "노무관리 쟁점 한 눈에 파악하기",
+  "실제 사례를 공개합니다!",
+  "마지막 관문 2라운드의 승자는?",
+  "기업 과제 풀고 취업까지 한번에!",
+  "OOO 검색하지 말 것!",
+  "Velog, 글 쓰는 개발자들의 이야기",
+  "프론트엔드 무료 교육과정 참여하기",
+  "디자이너의 포폴 살펴보기",
+  "브랜드 가치를 더하는 디자인",
+];
+
+
+
+
+
+//
 // const API_KEY = "6612dc4f65442db14ddfef3eafd95470";
 // const TODAY = new Date();
 // const YEAR = TODAY.getFullYear();
@@ -117,6 +160,8 @@ const TopBannerStyle = styled.div`
 `;
 
 export function SimpleSlider() {
+
+  
   const settings = {
     // prevArrow: <PreviousBtn />,
     // nextArrow: <NextBtn />,
@@ -124,7 +169,7 @@ export function SimpleSlider() {
     infinite: true,
     speed: 270,
     // slidesToShow: 5,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
     // centerMode:true,

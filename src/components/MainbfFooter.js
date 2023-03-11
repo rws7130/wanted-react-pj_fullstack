@@ -88,12 +88,13 @@ const BfFooterStyle = styled.section`
           padding: 0 27px;
           -webkit-box-sizing: border-box;
           box-sizing: border-box;
-          border-radius: 25px;
+          /* border-radius: 25px; */
           font-size: 16px;
           font-weight: 700;
           line-height: normal;
           border: none;
-          background-color: none;
+          background-color: white;
+          
           cursor: pointer;
           > span.btFooter-container-label {
             width: 100%;
