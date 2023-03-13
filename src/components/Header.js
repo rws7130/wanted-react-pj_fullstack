@@ -49,18 +49,27 @@ const NavBarStyle = styled.div`
         justify-content: space-between;
 
         > .Navtoplogo {
-          display: flex;
+          /* display: flex; */
+          position: relative;
+          display: inline-block;
           > .MainBarhamberger {
             margin-top: -2px;
             margin-right: 15px;
-          }
-          > button {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            background: none;
+            border: none;
             cursor: pointer;
-            font-family: inherit;
+            /*  */
+            background-color: #4caf50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+
+            /* > button {
+              margin: 0;
+              padding: 0;
+              border: 0;
+              background: none;
+              cursor: pointer;
+              font-family: inherit; */
 
             > img {
               width: 17px;
@@ -69,9 +78,79 @@ const NavBarStyle = styled.div`
               vertical-align: middle;
             }
           }
+          .MainBarhamberger:hover .Hamberger-hover-menu {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            /* position: absolute; */
+          }
+          section.Hamberger-hover-menu {
+            /* display: inline-block; */
+            overflow-y: scroll;
+            /* a {
+              em {
+                h2 {
+                }
+              }
+            } */
+            position: relative;
+            ul {
+              ul {
+                display: none;
+              }
+            }
+            ul li:hover > ul {
+              display: block;
+              /* position: absolute; */
+            }
+            a.alljob-grop {
+              display: none;
+            }
+            a {
+              width: 199.56px;
+              height: 40px;
+            }
+
+            ul {
+              /* display: none; */
+              li.hover-menu {
+                display: none;
+                background-color: #f9f9f9;
+                min-width: 200px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                position: absolute;
+              }
+              ul {
+                /* li.hovermenu-next:hover {
+                  display: block;
+                  background-color: #f9f9f9;
+                  min-width: 200px;
+                  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                  z-index: 1;
+                  position: relative;
+                }  */
+                /* 위코드 적용안됨.. */
+              }
+              li {
+                a {
+                  div.freelancer {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+          section.Hamberger-hover-menu a:hover{
+            background-color: #f1f1f1
+          }
           > .wantedlogo {
             display: block;
           }
+        }
+        .Navtoplogo:hover section.Hamberger-hover-menu {
+          display: block;
         }
         > #HeaderBtn {
           display: none;
@@ -297,186 +376,750 @@ function Header() {
                 data-gnb-kind="jobCategoryMenu"
                 className="MainBarhamberger"
               >
-                <section className="Explore_MainCategory__rpxri">
-                  <a href="/wdlist" className="">
-                    <em>
-                      <h2>직군 전체</h2>
-                    </em>
-                  </a>
-                  <ul>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/518" className="">
-                        <em>개발</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/507" className="">
-                        <em>경영·비즈니스</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/523" className="">
-                        <em>마케팅·광고</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/511" className="">
-                        <em>디자인</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/530" className="">
-                        <em>영업</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/510" className="">
-                        <em>고객서비스·리테일</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/959" className="">
-                        <em>게임 제작</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/524" className="">
-                        <em>미디어</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/517" className="">
-                        <em>HR</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      class="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/513" class="">
-                        <em>엔지니어링·설계</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/508" className="">
-                        <em>금융</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/522" className="">
-                        <em>제조·생산</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      class="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/515" class="">
-                        <em>의료·제약·바이오</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/532" className="">
-                        <em>물류·무역</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/10101" className="">
-                        <em>교육</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/521" className="">
-                        <em>법률·법집행기관</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/10057" className="">
-                        <em>식·음료</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/509" className="">
-                        <em>건설·시설</em>
-                      </a>
-                    </li>
-                    <li
-                      data-testid="category-item"
-                      className="Explore_CategoryItem__46TK9"
-                    >
-                      <a href="/wdlist/514" className="">
-                        <em>공공·복지</em>
-                      </a>
-                    </li>
-                    <li className="Explore_GigsCategoryItem__l4LhT">
-                      <a
-                        href="https://www.wanted.co.kr/gigs/projects"
-                        className="Explore_GigsCategoryItem_link__OlnwE"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-attribute-id="jobCategoryMenu__banner__click"
-                      >
-                        <div className="Explore_GigsCategoryItem_banner__eRpF8">
-                          <span>프리랜서</span>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </section>
                 <img
                   src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ficon-menu.png&amp;w=17&amp;q=75"
                   alt="hamberger menu"
                   height="14"
                 />
               </button>
+              {/* 메뉴호버시작 */}
+              <section className="Hamberger-hover-menu">
+                <a href="/wdlist" className="alljob-grop">
+                  <em>
+                    <h2>직군 전체</h2>
+                  </em>
+                </a>
+                {/* 아래부터 ul 태그시작 */}
+                <ul>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/518" className="">
+                      <em>개발</em>
+                    </a>
+                  </li>
+                  {/* 아래부터 2차메뉴 시작 */}
+                  {/* <ul style="width: 800px;"> */}
+                  {/* <ul>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/" clasName="" aria-label="">
+                        개발 전체
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/873" clasName="" aria-label="">
+                        웹 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/872" clasName="" aria-label="">
+                        서버 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/10110" clasName="" aria-label="">
+                        소프트웨어 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/669" clasName="" aria-label="">
+                        프론트엔드 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/660" clasName="" aria-label="">
+                        자바 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/900" clasName="" aria-label="">
+                        C,C++ 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/899" clasName="" aria-label="">
+                        파이썬 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/677" clasName="" aria-label="">
+                        안드로이드 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/674" clasName="" aria-label="">
+                        DevOps / 시스템 관리자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/895" clasName="" aria-label="">
+                        Node.js 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/678" clasName="" aria-label="">
+                        iOS 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/665" clasName="" aria-label="">
+                        시스템,네트워크 관리자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/655" clasName="" aria-label="">
+                        데이터 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/1634" clasName="" aria-label="">
+                        머신러닝 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/1026" clasName="" aria-label="">
+                        기술지원
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/877" clasName="" aria-label="">
+                        개발 매니저
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/1024" clasName="" aria-label="">
+                        데이터 사이언티스트
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/1025" clasName="" aria-label="">
+                        빅데이터 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/676" clasName="" aria-label="">
+                        QA,테스트 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/671" clasName="" aria-label="">
+                        보안 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/658" clasName="" aria-label="">
+                        임베디드 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/876" clasName="" aria-label="">
+                        프로덕트 매니저
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/672" clasName="" aria-label="">
+                        하드웨어 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/893" clasName="" aria-label="">
+                        PHP 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/10231" clasName="" aria-label="">
+                        DBA
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/1027" clasName="" aria-label="">
+                        블록체인 플랫폼 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/10111" clasName="" aria-label="">
+                        크로스플랫폼 앱 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/661" clasName="" aria-label="">
+                        .NET 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/939" clasName="" aria-label="">
+                        웹 퍼블리셔
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/10230" clasName="" aria-label="">
+                        ERP전문가
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/896" clasName="" aria-label="">
+                        영상,음성 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/795" clasName="" aria-label="">
+                        CTO,Chief Technology Officer
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/898" clasName="" aria-label="">
+                        그래픽스 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/1022" clasName="" aria-label="">
+                        BI 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/894" clasName="" aria-label="">
+                        루비온레일즈 개발자
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/10112" clasName="" aria-label="">
+                        VR 엔지니어
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                    <li clasName="hovermenu-next">
+                      <a href="/wdlist/518/793" clasName="" aria-label="">
+                        CIO,Chief Information Officer
+                      </a>
+                      <svg
+                        width="10"
+                        height="10"
+                        clasName="Explore_CategoryItem_Icon__TUrh4"
+                        viewBox="0 0 12 12"
+                      >
+                        <path
+                          fill="#3366FF"
+                          d="M3.345 9.72a.75.75 0 0 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25a.75.75 0 0 0-1.06 1.06L7.065 6l-3.72 3.72z"
+                        ></path>
+                      </svg>
+                    </li>
+                  </ul> */}
+                  ;{/*  */}
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/507" className="">
+                      <em>경영·비즈니스</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/523" className="">
+                      <em>마케팅·광고</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/511" className="">
+                      <em>디자인</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/530" className="">
+                      <em>영업</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/510" className="">
+                      <em>고객서비스·리테일</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/959" className="">
+                      <em>게임 제작</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/524" className="">
+                      <em>미디어</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/517" className="">
+                      <em>HR</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" class="hover-menu">
+                    <a href="/wdlist/513" class="">
+                      <em>엔지니어링·설계</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/508" className="">
+                      <em>금융</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/522" className="">
+                      <em>제조·생산</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" class="hover-menu">
+                    <a href="/wdlist/515" class="">
+                      <em>의료·제약·바이오</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/532" className="">
+                      <em>물류·무역</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/10101" className="">
+                      <em>교육</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/521" className="">
+                      <em>법률·법집행기관</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/10057" className="">
+                      <em>식·음료</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/509" className="">
+                      <em>건설·시설</em>
+                    </a>
+                  </li>
+                  <li data-testid="category-item" className="hover-menu">
+                    <a href="/wdlist/514" className="">
+                      <em>공공·복지</em>
+                    </a>
+                  </li>
+                  <li className="Explore_GigsCategoryItem__l4LhT">
+                    <a
+                      href="https://www.wanted.co.kr/gigs/projects"
+                      className="Explore_GigsCategoryItem_link__OlnwE"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-attribute-id="jobCategoryMenu__banner__click"
+                    >
+                      <div className="freelancer">
+                        <span>프리랜서</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </section>
+              {/* 밑에서부터 2차메뉴 시작 */}
+              {/* <section class="Explore_SubCategory__xIcAi"> */}
+
+              {/* </section> */}
+              {/*  */}
+
               <a
                 href="/"
                 className="wantedlogo"

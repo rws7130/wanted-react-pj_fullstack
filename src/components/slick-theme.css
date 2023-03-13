@@ -10,81 +10,73 @@
   font-weight: normal;
   font-style: normal;
 
-  /* src: url('./fonts/slick.eot');
-    src: url('./fonts/slick.eot?#iefix') format('embedded-opentype'), url('./fonts/slick.woff') format('woff'), url('./fonts/slick.ttf') format('truetype'), url('./fonts/slick.svg#slick') format('svg'); */
+  /* src: url("./fonts/slick.eot"); */
+  /* src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"),
+    url("./fonts/slick.woff") format("woff"),
+    url("./fonts/slick.ttf") format("truetype"),
+    url("./fonts/slick.svg#slick") format("svg"); */
 }
 /* Arrows */
 .slick-prev,
 .slick-next {
-  /* font-size: 0;
-    line-height: 0;
+  font-size: 0;
+  line-height: 0;
 
-    position: absolute;
-    top: 50%;
-
-    display: block;
-
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-
-    cursor: pointer;
-
-    color: transparent;
-    border: none;
-    outline: none;
-    background: transparent; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: absolute;
-  top: 120px;
-  width: 30px;
-  height: 60px;
-  opacity: 0.5;
-  border-radius: 15px;
-  background-color: rgb(255, 255, 255);
-  font-size: 16px;
-  z-index: 10;
+  /* top: calc(50% - 55px); */
+
+  display: block;
+
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  -webkitnsform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+
+  cursor: pointer;
+
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+
+  /* content: "";
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.8)
+    url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
+    13px scroll no-repeat;
+  transform: rotate(-180deg); */
+  overflow: hidden;
+  right: -20px;
+  /* top: calc(50% - 26px); */
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  font-size: 0;
+  border-radius: 50%;
+  box-shadow: 2px 2px 8px 0 rgb(0 0 0 / 20%);
+  z-index: 30;
   /*  */
-  
 }
+/* .slick-prev {
+  left: 0% !important;
+  z-index: 1;
+}
+.slick-next {
+  right: 0% !important;
+  z-index: 1;
+} */
+
 .slick-prev:hover,
 .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus {
   color: transparent;
   outline: none;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 120px;
-  width: 30px;
-  height: 60px;
-  opacity: 0.5;
-  border-radius: 15px;
-  background-color: rgb(255, 255, 255);
-  font-size: 16px;
-  z-index: 10;
+  /* background: transparent; */
 }
-
-.slick-next:hover {
-  background: rgba(255, 255, 255, 0.8)
-    url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
-    13px scroll no-repeat;
-  transform: rotate(-180deg);
-}
-.slick-prev:hover {
-  background: rgba(255, 255, 255, 0.8)
-    url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
-    13px scroll no-repeat;
-}
-
 .slick-prev:hover:before,
 .slick-prev:focus:before,
 .slick-next:hover:before,
@@ -99,62 +91,94 @@
 .slick-prev:before,
 .slick-next:before {
   font-family: "slick";
-  font-size: 20px;
+  font-size: 50px;
   line-height: 1;
 
   opacity: 0.75;
-  color: white;
+  color: black;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .slick-prev {
-  left: -25px;
-  left: calc((100% - 1210px) / 2);
+  left: 0px;
+  bottom:-20px;
+  /* position: relative; */
+  content: "";
+  width: 40px;
+  height: 40px;
   background: rgba(255, 255, 255, 0.8)
     url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
     13px scroll no-repeat;
+  /* z-index: 99; */
+  top: calc(50% - 33px);
+  /* position: relative; */
+  z-index: 3;
 }
 [dir="rtl"] .slick-prev {
   right: -25px;
   left: auto;
 }
 .slick-prev:before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.8)
+    url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png);
 }
 [dir="rtl"] .slick-prev:before {
-  /* content: "→"; */
+  content: "→";
 }
 
 .slick-next {
-  right: -25px;
-  right: calc((100% - 1200px) / 2);
+  right: -970px;
+  bottom: 19px;
+  content: "";
+  position: relative;
+  width: 40px;
+  height: 40px;
   background: rgba(255, 255, 255, 0.8)
     url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
     13px scroll no-repeat;
   transform: rotate(-180deg);
+  /* z-index: 99; */
+  top: calc(50% - 55px);
+  z-index: 3;
+  /*  */
+  
 }
 [dir="rtl"] .slick-next {
   right: auto;
   left: -25px;
 }
 .slick-next:before {
+  /* content: "→"; */
+  /* overflow: hidden; */
+  /* right: -20px;
+  top: calc(50% - 26px);
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  font-size: 0;
+  border-radius: 50%;
+  box-shadow: 2px 2px 8px 0 rgb(0 0 0 / 20%); */
+  content: "";
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.8)
+    url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
+    13px scroll no-repeat;
+  transform: rotate(-180deg);
 }
+
 [dir="rtl"] .slick-next:before {
-  /* content: "←"; */
+  content: "←";
 }
 
 /* Dots */
 .slick-dotted.slick-slider {
   margin-bottom: 30px;
-}
-
-@media (min-width: 1200px) {
-  .slick-slide {
-    padding: 0 12px;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-  }
 }
 
 .slick-dots {

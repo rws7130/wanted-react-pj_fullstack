@@ -1,0 +1,7 @@
+.top-banner {
+  @media (min-width: 1200px) height: auto;
+
+  position: relative;
+  overflow: hidden;
+  height: 304.77px;
+}
