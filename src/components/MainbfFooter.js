@@ -49,6 +49,9 @@ const BfFooterStyle = styled.section`
         border-right: 1px solid #ececec;
         width: 25%;
         align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        height: 100px;
         a.btFooter-recruit {
           height: 32px;
           font-size: 32px;
@@ -57,7 +60,7 @@ const BfFooterStyle = styled.section`
 
             align-items: inherit;
 
-            justify-content: inherit;
+            justify-content: center;
             svg.btFooter-recruit-icon {
               user-select: none;
               width: 1em;
@@ -94,7 +97,103 @@ const BfFooterStyle = styled.section`
           line-height: normal;
           border: none;
           background-color: white;
-          
+
+          cursor: pointer;
+          right: -72px;
+          > span.btFooter-container-label {
+            width: 100%;
+            font-size: inherit;
+            font-weight: inherit;
+            display: inherit;
+            -ms-flex-align: inherit;
+            align-items: inherit;
+            -ms-flex-pack: inherit;
+            justify-content: inherit;
+            color: inherit;
+            > span.btFooter-container-svg {
+              margin-right: -1px;
+              margin-left: 2px;
+              > span.btFooter-container-icon {
+                display: flex;
+                align-items: inherit;
+                justify-content: inherit;
+                > svg.btFooter-container-icon2 {
+                  user-select: none;
+                  width: 1em;
+                  height: 1em;
+                  display: inline-block;
+                  fill: currentColor;
+                  flex-shrink: 0;
+                  font-size: inherit;
+                  path {
+                  }
+                }
+              }
+            }
+            > span {
+              margin-top: 0;
+            }
+          }
+        } /* */
+      }
+      /* 2번째 */
+      div.btFooter-container-ingrid2 {
+        padding: 18px 0 0;
+        border-right: 1px solid #ececec;
+        width: 25%;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        height: 100px;
+        a.btFooter-recruit {
+          height: 32px;
+          font-size: 32px;
+          right: -110px;
+          position: relative;
+          /* svg {
+            defs {
+              path {
+              }
+            }
+            g {
+              mask {
+              }
+              use {
+              }
+              g {
+                path {
+                }
+              }
+            }
+          } */
+        }
+        > button.btFooter-container-btn {
+          height: 50px;
+          font-size: 16px;
+          color: #171717;
+          padding: 6px 8px;
+          //
+          position: relative;
+
+          display: inline-flex;
+
+          align-items: center;
+
+          justify-content: center;
+          vertical-align: middle;
+          min-width: 64px;
+          padding: 0 27px;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          /* border-radius: 25px; */
+          font-size: 16px;
+          font-weight: 700;
+          line-height: normal;
+          border: none;
+          background-color: white;
+          top: 30px;
+          right: -40px;
+
           cursor: pointer;
           > span.btFooter-container-label {
             width: 100%;
@@ -130,9 +229,166 @@ const BfFooterStyle = styled.section`
               margin-top: 0;
             }
           }
-        }
+        } /* */
       }
-      a.btFooter-recruit {
+      /* 3번째 */
+      div.btFooter-container-ingrid3 {
+        padding: 18px 0 0;
+        border-right: 1px solid #ececec;
+        width: 25%;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        height: 100px;
+        a.btFooter-recruit {
+          height: 32px;
+          font-size: 32px;
+          position: relative;
+          right: -110px;
+        }
+        > button.btFooter-container-btn {
+          height: 50px;
+          font-size: 16px;
+          color: #171717;
+          padding: 6px 8px;
+          //
+          position: relative;
+
+          display: inline-flex;
+
+          align-items: center;
+
+          justify-content: center;
+          vertical-align: middle;
+          min-width: 64px;
+          padding: 0 27px;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          /* border-radius: 25px; */
+          font-size: 16px;
+          font-weight: 700;
+          line-height: normal;
+          border: none;
+          background-color: white;
+          top: 30px;
+          right: -40px;
+
+          cursor: pointer;
+          > span.btFooter-container-label {
+            width: 100%;
+            font-size: inherit;
+            font-weight: inherit;
+            display: inherit;
+            -ms-flex-align: inherit;
+            align-items: inherit;
+            -ms-flex-pack: inherit;
+            justify-content: inherit;
+            color: inherit;
+            > span.btFooter-container-svg {
+              margin-right: -1px;
+              margin-left: 2px;
+              > span.btFooter-container-icon {
+                display: flex;
+                align-items: inherit;
+                justify-content: inherit;
+                > svg.btFooter-container-icon2 {
+                  user-select: none;
+                  width: 1em;
+                  height: 1em;
+                  display: inline-block;
+                  fill: currentColor;
+                  flex-shrink: 0;
+                  font-size: inherit;
+                  path {
+                  }
+                }
+              }
+            }
+            > span {
+              margin-top: 0;
+            }
+          }
+        } /* */
+      }
+      /* 4번째 */
+      div.btFooter-container-ingrid4 {
+        padding: 18px 0 0;
+        border-right: 1px solid #ececec;
+        width: 25%;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        height: 100px;
+        a.btFooter-recruit {
+          height: 32px;
+          font-size: 32px;
+          right: -110px;
+          position: relative;
+        }
+        > button.btFooter-container-btn {
+          height: 50px;
+          font-size: 16px;
+          color: #171717;
+          padding: 6px 8px;
+          //
+          position: relative;
+
+          display: inline-flex;
+
+          align-items: center;
+
+          justify-content: center;
+          vertical-align: middle;
+          min-width: 64px;
+          padding: 0 27px;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          /* border-radius: 25px; */
+          font-size: 16px;
+          font-weight: 700;
+          line-height: normal;
+          border: none;
+          background-color: white;
+          top: 30px;
+          right: -40px;
+
+
+          cursor: pointer;
+          > span.btFooter-container-label {
+            width: 100%;
+            font-size: inherit;
+            font-weight: inherit;
+            display: inherit;
+            -ms-flex-align: inherit;
+            align-items: inherit;
+            -ms-flex-pack: inherit;
+            justify-content: inherit;
+            color: inherit;
+            > span.btFooter-container-svg {
+              margin-right: -1px;
+              margin-left: 2px;
+              > span.btFooter-container-icon {
+                display: flex;
+                align-items: inherit;
+                justify-content: inherit;
+                > svg.btFooter-container-icon2 {
+                  user-select: none;
+                  width: 1em;
+                  height: 1em;
+                  display: inline-block;
+                  fill: currentColor;
+                  flex-shrink: 0;
+                  font-size: inherit;
+                  path {
+                  }
+                }
+              }
+            }
+            > span {
+              margin-top: 0;
+            }
+          }
+        } /* */
       }
     }
   }
@@ -175,7 +431,7 @@ function MainbfFooter() {
               </span>
             </button>
           </div>
-          <div className="btFooter-container-ingrid1">
+          <div className="btFooter-container-ingrid2">
             <a
               className="btFooter-recruit"
               data-attribute-id="home__recruit__click"
@@ -196,12 +452,12 @@ function MainbfFooter() {
                 </defs>
                 <g fill="none" fillRule="evenodd">
                   <mask id="IconProfileThick-b" fill="#fff">
-                    {/* <use xlink:href="#IconProfileThick-a"></use> */}
+                    <use xlinkHref="#IconProfileThick-a"></use>
                   </mask>
                   <use
                     fill="#333"
                     fillRule="nonzero"
-                    // xlink:href="#IconProfileThick-a"
+                    xlinkHref="#IconProfileThick-a"
                   ></use>
                   <g mask="url(#IconProfileThick-b)" fill="#333">
                     <path d="M0 0h28v28H0z"></path>
@@ -229,7 +485,7 @@ function MainbfFooter() {
               </span>
             </button>
           </div>
-          <div className="btFooter-container-ingrid1">
+          <div className="btFooter-container-ingrid3">
             <a
               className="btFooter-recruit"
               data-attribute-id="home__recruit__click"
@@ -250,12 +506,12 @@ function MainbfFooter() {
                 </defs>
                 <g fill="none" fillRule="evenodd">
                   <mask id="building-icon-b" fill="#fff">
-                    {/* <use xlink:href="#building-icon-a"></use> */}
+                    <use xlinkHref="#building-icon-a"></use>
                   </mask>
                   <use
                     fill="#333"
                     fillRule="nonzero"
-                    // xlink:href="#building-icon-a"
+                    xlinkHref="#building-icon-a"
                   ></use>
                   <g mask="url(#building-icon-b)" fill="#333">
                     <path d="M0 0h28v28H0z"></path>
@@ -279,7 +535,7 @@ function MainbfFooter() {
               </span>
             </button>
           </div>
-          <div className="btFooter-container-ingrid1">
+          <div className="btFooter-container-ingrid4">
             <a
               className="btFooter-recruit"
               data-attribute-id="home__recruit__click"

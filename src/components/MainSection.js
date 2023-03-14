@@ -326,6 +326,10 @@ const SectionStyle = styled.section`
         border-radius: 4px;
         border: 1px solid rgba(0, 0, 0, 0.06);
         overflow: hidden;
+        img{
+          width: 248.4px;
+          height: 175px;
+        }
       }
     }
   }

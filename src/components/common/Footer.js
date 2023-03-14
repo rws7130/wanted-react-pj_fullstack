@@ -30,7 +30,7 @@ const FooterStyle = styled.footer`
           font-weight: 500;
           line-height: 2.6;
           margin-right: 45px;
-          white-space: nowrap;
+          white-space: nowrap; 
         }
         b {
           font-weight: 700;

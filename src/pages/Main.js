@@ -10,7 +10,7 @@ import Mainbody from "../components/Mainbody";
 import MainLineBanner from "../components/MainLineBanner";
 import MainEvent from "../components/MainEvent";
 import MainbfFooter from "../components/MainbfFooter";
-import Footer from "../components/Footer";
+import Footer from "../components/common/Footer";
 import Slider from "../components/Slider";
 
 const MainPageStyle = styled.div`
