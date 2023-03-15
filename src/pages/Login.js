@@ -8,6 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 import { ImBubble } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 const PageLogin = styled.div`
   width: 100%;
   height: 100%;
@@ -107,7 +108,7 @@ const PageLogin = styled.div`
               outline: none;
               background-color: transparent;
               border: 1px solid #e1e2e3;
-              color: transparent;
+              color: black;
               border-radius: 5px;
               font-size: 16px;
               font-weight: 400;
@@ -435,16 +436,102 @@ const PageLogin = styled.div`
 `;
 function Login() {
   const navigate = useNavigate();
-  const goFacebook = () => {
-    navigate("/Facebook");
+  const goMain = () => {
+    navigate("/Main");
   };
-  const goApple = () => {
-    navigate("/Login");
-  };
-  const goGoogle = () => {
-    navigate("/Login");
-  };
+  // const goApple = () => {
+  //   navigate("/Login");
+  // };
+  // const goGoogle = () => {
+  //   navigate("/Login");
+  // };
 
+  async function login(event) {
+    event.preventDefault();
+    try {
+      await axios
+        .post("https://prod.wanted-a.online/users/logIn", {    //Post 명세서 확인
+          email: email,
+          password: password,
+        })
+        .then(
+          (res) => {
+            console.log(res.data);
+
+            if (res.data.message == "Email not exits") {
+              alert("Email not exits");
+            } else if (res.data.message == "Login Success") {
+              navigate("/Main");
+            } else {
+              alert("Incorrect Email and Password not match");
+            }
+          },
+          // (fail) => {
+          //   console.error(fail); // Error!
+          // }
+        );
+    } catch (err) {
+      alert(err);
+    }
+  }
+  //
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [valid, setValid] = useState(false);
+  const [valid2, setValid2] = useState(false);
+  const [passvalid, pasetValid] = useState(false);
+
+  // 여기에 있는 id와 연동해서 valid 상태가 변경 되어야 함
+  let [id, setId] = useState("");
+  let [pw, setPw] = useState("");
+  const [button, setButton] = useState(true);
+
+  useEffect(() => {
+    email.includes("@") && email.length >= 5
+      ? setButton(false)
+      : setButton(true);
+  }, [id, pw]); // id와 pw가 변경될 때마다 실행 , 이부분 고쳐서 실행됨
+
+  useEffect(() => {
+    setValid(email.includes("@")); // id에 @가 포함된 경우 valid를 true로, 아니면 false로 변경
+  }, [email]); // id가 바뀌었을 때
+
+  // useEffect(() => {
+  //   setValid2(email.length >= 5); // pw의 길이가 5 이상인 경우 valid를 true로, 아니면 false로 변경
+  // }, [pw]); // pw가 바뀌었을 때
+
+  // const navigate = useNavigate();
+  const goToLoginInput = () => {
+    window.localStorage.setItem("authorized", true); // 인증 처리
+    navigate("/LoginInputPage");
+  };
+  // const realId = "riscmp@naver.com";
+  // const realPw = "12345678";
+  // 로그인
+
+  // const inputPassword = (e) => {
+  //   setPassword(e.target.value);
+  // };
+
+  // const inputPassword2 = (b) => {
+  //   pasetValid(b.target.value);
+  // };
+  // 이메일시작;
+  useEffect(() => {
+    if (password.length < 5) {
+      setValid(false);
+    } else {
+      setValid(true);
+    }
+  }, [password]);
+  // 패스워드시작
+  useEffect(() => {
+    if (passvalid.length < 5) {
+      setValid2(false);
+    } else {
+      setValid2(true);
+    }
+  }, [passvalid]);
   return (
     <>
       <PageLogin>
@@ -496,11 +583,23 @@ function Login() {
                     data-testid="Input_email"
                     className="form-input"
                     defaultValue=""
+                    value={email}
+                    onChange={(event) => {
+                      setEmail(event.target.value);
+                    }}
+                    onKeyUp={Login}
+                    disabled={email}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      goToLoginInput();
+                    }}
                   />
+
                   <button
                     type="submit"
                     className="form-email-button"
                     disabled=""
+                    onClick={login}
                   >
                     <span
                       data-testid="Typography"
@@ -524,7 +623,10 @@ function Login() {
                       data-attribute-id="signupLogin__start"
                       data-method="apple"
                       className="links-btn1"
-                      onClick={() => window.location.href='https://appleid.apple.com/auth/authorize?scope=name%20email&response_mode=form_post&response_type=code%20id_token&client_id=com.wantedlab.wanted.web&state=BDKKHWVwJXKAJZEf&redirect_uri=https%3A%2F%2Fid-api.wanted.jobs%2Fv1%2Fproviders%2Fapple%2Fauth'}
+                      onClick={() =>
+                        (window.location.href =
+                          "https://appleid.apple.com/auth/authorize?scope=name%20email&response_mode=form_post&response_type=code%20id_token&client_id=com.wantedlab.wanted.web&state=BDKKHWVwJXKAJZEf&redirect_uri=https%3A%2F%2Fid-api.wanted.jobs%2Fv1%2Fproviders%2Fapple%2Fauth")
+                      }
                     >
                       <span className="link-icon-span">
                         <svg viewBox="0 0 57 56" className="link-icon-svg">
@@ -551,7 +653,10 @@ function Login() {
                       data-attribute-id="signupLogin__start"
                       data-method="facebook"
                       className="links-btn1"
-                      onClick={() => window.location.href='https://www.facebook.com/login.php?skip_api_login=1&api_key=316787678519888&kid_directed_site=0&app_id=316787678519888&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fdisplay%3Dpage%26scope%3Demail%252Cpublic_profile%252Cuser_friends%26locale%3Den_US%26client_id%3D316787678519888%26state%3DIVkdMRVUKVKhilER%26redirect_uri%3Dhttps%253A%252F%252Fid-api.wanted.jobs%252Fv1%252Fproviders%252Ffacebook%252Fauth%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3Df05b387e-2ecf-4fe1-b029-64aabe4ac3ed%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fid-api.wanted.jobs%2Fv1%2Fproviders%2Ffacebook%2Fauth%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DIVkdMRVUKVKhilER%23_%3D_&display=page&locale=ko_KR&pl_dbl=0'}
+                      onClick={() =>
+                        (window.location.href =
+                          "https://www.facebook.com/login.php?skip_api_login=1&api_key=316787678519888&kid_directed_site=0&app_id=316787678519888&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Foauth%3Fdisplay%3Dpage%26scope%3Demail%252Cpublic_profile%252Cuser_friends%26locale%3Den_US%26client_id%3D316787678519888%26state%3DIVkdMRVUKVKhilER%26redirect_uri%3Dhttps%253A%252F%252Fid-api.wanted.jobs%252Fv1%252Fproviders%252Ffacebook%252Fauth%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3Df05b387e-2ecf-4fe1-b029-64aabe4ac3ed%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fid-api.wanted.jobs%2Fv1%2Fproviders%2Ffacebook%2Fauth%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DIVkdMRVUKVKhilER%23_%3D_&display=page&locale=ko_KR&pl_dbl=0")
+                      }
                     >
                       <span className="link-icon-span">
                         <svg viewBox="0 0 57 56" className="link-icon-svg">
@@ -580,7 +685,10 @@ function Login() {
                       data-attribute-id="signupLogin__start"
                       data-method="google"
                       className="links-btn2 "
-                      onClick={() => window.location.href='https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?response_type=code&scope=profile%20email%20openid&access_type=online&include_granted_scopes=true&client_id=792010635012-vi1rjnvg0n9d2f2noe9c74jvea78vlvs.apps.googleusercontent.com&state=UraHqWwXKtyCaKsO&redirect_uri=https%3A%2F%2Fid-api.wanted.jobs%2Fv1%2Fproviders%2Fgoogle%2Fauth&service=lso&o2v=2&flowName=GeneralOAuthFlow'}
+                      onClick={() =>
+                        (window.location.href =
+                          "https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?response_type=code&scope=profile%20email%20openid&access_type=online&include_granted_scopes=true&client_id=792010635012-vi1rjnvg0n9d2f2noe9c74jvea78vlvs.apps.googleusercontent.com&state=UraHqWwXKtyCaKsO&redirect_uri=https%3A%2F%2Fid-api.wanted.jobs%2Fv1%2Fproviders%2Fgoogle%2Fauth&service=lso&o2v=2&flowName=GeneralOAuthFlow")
+                      }
                     >
                       <span className="link-icon-span">
                         <svg viewBox="0 0 57 56" className="link-icon-svg">
@@ -623,8 +731,10 @@ function Login() {
                       data-attribute-id="signupLogin__start"
                       data-method="kakao"
                       className="links-btn1 "
-                      
-                      onClick={() => window.location.href='https://accounts.kakao.com/login/?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26state%3DYHLRjjNRIkdeJhhO%26redirect_uri%3Dhttps%253A%252F%252Fid-api.wanted.jobs%252Fv1%252Fproviders%252Fkakao%252Fauth%26through_account%3Dtrue%26client_id%3Dd270c6f88893a0836c4f7a578e551037#login'}
+                      onClick={() =>
+                        (window.location.href =
+                          "https://accounts.kakao.com/login/?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26state%3DYHLRjjNRIkdeJhhO%26redirect_uri%3Dhttps%253A%252F%252Fid-api.wanted.jobs%252Fv1%252Fproviders%252Fkakao%252Fauth%26through_account%3Dtrue%26client_id%3Dd270c6f88893a0836c4f7a578e551037#login")
+                      }
                     >
                       <span className="link-icon-span">
                         <svg viewBox="0 0 57 56" className="link-icon-svg">
@@ -739,9 +849,6 @@ function Login() {
   );
 }
 
-
-
-// 
-
+//
 
 export default Login;

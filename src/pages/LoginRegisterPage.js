@@ -3,6 +3,8 @@ import styles from "./LoginRegisterPage.module.css";
 import styled from "styled-components";
 // import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Login from "./Login";
 
 const LoginRegisterStyle = styled.div`
   width: 100%;
@@ -304,12 +306,40 @@ const LoginRegisterStyle = styled.div`
               color: #888;
               font-weight: 400;
               text-align: left;
-              letter-spacing:0.0056em;
+              letter-spacing: 0.0056em;
               font-size: 16px;
               line-height: 24px;
               margin-left: 0px;
               margin-top: 0px;
               margin-bottom: 0px;
+            }
+          }
+        }
+        div.regist-last-button {
+          button.last-btn:disabled {
+            color: #ccc;
+            background-color: #f2f4f7;
+            border: none;
+            cursor: default;
+          }
+          button.last-btn {
+            width: 100%;
+            height: 50px;
+            min-height: 50px;
+            border-radius: 25px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            background-color: #36f;
+            border: none;
+            margin-top: 30px;
+            span.btn-span {
+              color: #000;
+              font-weight: 600;
+              text-align: left;
+              letter-spacing: 0.0056em;
+              font-size: 16px;
+              line-height: 24px;
             }
           }
         }
@@ -368,10 +398,37 @@ const LoginRegisterStyle = styled.div`
               }
             }
           }
-          .phone-auth {
+          div.phone-auth {
             display: flex;
             flex-direction: row;
             position: relative;
+            button.auth-btn {
+              height: 50px;
+              min-height: 50px;
+              font-size: 16px;
+              margin-bottom: 10px;
+              cursor: pointer;
+              background-color: #fff;
+              margin-left: 10px;
+              padding: 0px 15px;
+              width: auto;
+              flex: 0 0 auto;
+              border-radius: 5px;
+              border: 1px solid #e1e2e3;
+              span.btn-span {
+                color: #ccc;
+              }
+            }
+
+            button.auth-btn:disabled {
+              border: 1px solid #f2f4f7;
+              color: #ccc;
+              background-color: #f2f4f7;
+              border: none;
+              cursor: default;
+              span.btn-span:disabled {
+              }
+            }
           }
         }
       }
@@ -379,13 +436,57 @@ const LoginRegisterStyle = styled.div`
   }
 `;
 function LoginRegisterPage() {
+  const navigate = useNavigate();
+  const goMain = () => {
+    navigate("/Main");
+  };
+  //   if (window.confirm("회원가입을 취소하고 이전 화면으로 되돌아갑니다. 계속하시겠어요?")) {
+  //     {goMain}
+  //   } else {
+
+  //   }
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+//   const [phoneNational, setPhoneNational] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+//   const [marketingAgreement, setMarketingAgreement] = useState("");
+
+  async function save(event) {
+    event.preventDefault();
+    try {
+      await axios.post("https://prod.wanted-a.online/users", {
+        //  http://localhost:8085/api/v1/employee/save
+        name: name,
+        email: email,
+        password: password,
+        // phoneNational: phoneNational,
+        phoneNumber: phoneNumber,
+        // marketingAgreement: marketingAgreement,
+      });
+      alert("Employee Registation Successfully");
+    } catch (err) {
+      alert(err);
+    }
+  }
+
   return (
     <LoginRegisterStyle>
       <div className="Register-wrap">
         <div className="Register-container">
           <div className="Register-top">
             <div className="top-cancel">
-              <button type="button" className="canel-button">
+              <button
+                type="button"
+                className="canel-button"
+                onClick={() =>
+                  window.confirm(
+                    "회원가입을 취소하고 이전 화면으로 되돌아갑니다. 계속하시겠어요?"
+                  ) ? (
+                    navigate(-1)
+                  ) : undefined
+                }
+              >
                 <p data-testid="Typography" className="cancel-btn-ptag">
                   취소
                 </p>
@@ -411,8 +512,11 @@ function LoginRegisterPage() {
                 name="email"
                 data-testid="Input_email"
                 className="register-input"
-                value="dsadadasdasd@naver.com"
+                value={email}
                 disabled=""
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
               />
               <div className="login-Resgister">
                 <label
@@ -429,7 +533,10 @@ function LoginRegisterPage() {
                 name="username"
                 data-testid="Input_username"
                 className="register-input"
-                value=""
+                value={name}
+                onChange={(event) => {
+                  setName(event.target.value);
+                }}
               />
               <div className="login-Resgister">
                 <label data-testid="Typography" for="mobile" className="title">
@@ -632,15 +739,18 @@ function LoginRegisterPage() {
                     name="mobile"
                     data-testid="Input_mobile"
                     className="register-input"
-                    value=""
+                    value={phoneNumber}
+                    onChange={(event) => {
+                      setPhoneNumber(event.target.value);
+                    }}
                   />
                   <button
                     type="button"
                     data-testid="Button"
-                    className="css-122uu24"
+                    className="auth-btn"
                     disabled=""
                   >
-                    <span data-testid="Typography" className="css-m3uta">
+                    <span data-testid="Typography" className="btn-span">
                       인증번호 받기
                     </span>
                   </button>
@@ -672,7 +782,10 @@ function LoginRegisterPage() {
                 name="password"
                 data-testid="Input_password"
                 className="register-input"
-                value=""
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
               />
               <input
                 type="password"
@@ -680,7 +793,10 @@ function LoginRegisterPage() {
                 name="passwordConfirm"
                 data-testid="Input_passwordConfirm"
                 className="register-input"
-                value=""
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
               />
               <p data-testid="Typography" className="password-ptag">
                 영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합해 8자 이상
@@ -788,7 +904,7 @@ function LoginRegisterPage() {
                         fill="none"
                         stroke-width="1.5"
                         stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinejoin="round"
                       ></path>
                     </svg>
                   </span>
@@ -810,7 +926,7 @@ function LoginRegisterPage() {
                         fill="none"
                         stroke-width="1.5"
                         stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinejoin="round"
                       ></path>
                     </svg>
                   </span>
@@ -832,7 +948,7 @@ function LoginRegisterPage() {
                         fill="none"
                         stroke-width="1.5"
                         stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinejoin="round"
                       ></path>
                     </svg>
                   </span>
@@ -842,15 +958,16 @@ function LoginRegisterPage() {
                 </label>
               </div>
               <div className="regist-last-button">
-                <div className="css-19u2tlp"></div>
-                <div className="css-k88bq3"></div>
+                {/* <div className="css-19u2tlp"></div>
+                <div className="css-k88bq3"></div> */}
                 <button
                   type="submit"
                   disabled=""
                   data-testid="Button"
-                  className="css-c61xw1"
+                  className="last-btn"
+                  onClick={save}
                 >
-                  <span data-testid="Typography" className="css-m3uta">
+                  <span data-testid="Typography" className="btn-span">
                     가입하기
                   </span>
                 </button>
