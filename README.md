@@ -84,5 +84,11 @@ https://velog.io/@2ujin/%EA%B9%83-Pull-is-not-possible-because-you-have-unmerged
 - login 페이지 작업중에 평소에 css module로 했었을때는 오류가 안났었는데 styled component - class로 css를 작성하니까 잘 모르는것도 있고 css가 적용이 잘 안되는 오류때문에 속도가 안나서 힘든상황입니다 ㅠㅜ..
 - useNavigate 를 다시 써봄으로서 메인-> 로그인페이지로 이동구현
 
-
-
+## 2023-03-11 진행상황
+- styled-componets 에 자식class 적용의 햇갈림 / login 첫화면 구현
+## 2023-03-12 진행상황
+- useNavigte / Link 차이공부 -> 실제적용으로 로그인버튼눌렀을때 페이지 이동 구현
+## 2023-03-13 진행상황
+- 메인페이지 css 오류난것들 수정 + 메뉴호버 구현도중 오류나서 해결중 + 메인페이지 슬라이더 구현(+ 슬라이더 안에있는 카드들 map으로 보내주는것 미리 작성함 가상으로)
+## 2023-03-14 진행상황
+- login 페이지를 완료했으나 이메일로 가입할때 나오는창을 안만들었어서 로그인창 관련해서 더 만들었습니다.
