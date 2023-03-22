@@ -12,6 +12,9 @@ import MainEvent from "../components/MainEvent";
 import MainbfFooter from "../components/MainbfFooter";
 import Footer from "../components/common/Footer";
 import Slider from "../components/Slider";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 
 const MainPageStyle = styled.div`
   @media (min-width: 1200px) {
@@ -40,6 +43,19 @@ const DividerRootStyle = styled.hr`
   background-color: #ececec;
 `;
 function Main() {
+  const [isLogin, setIsLogin] = useState(false); //로그인 관리
+
+  useEffect(() => {
+    if (sessionStorage.getItem("name") === null) {
+      // sessionStorage 에 name 라는 key 값으로 저장된 값이 없다면
+      console.log("isLogin ?? :: ", isLogin);
+    } else {
+      // sessionStorage 에 name 라는 key 값으로 저장된 값이 있다면
+      // 로그인 상태 변경
+      setIsLogin(true);
+      console.log("isLogin ?? :: ", isLogin);
+    }
+  });
   return (
     <>
       <Header></Header>
@@ -59,6 +75,16 @@ function Main() {
         <MainbfFooter></MainbfFooter>
         <Footer></Footer>
       </MainPageStyle>
+      {/* 로그인이 되어있다면 */}
+      {isLogin ? (
+        <Link to={`/Main`} className="nav-link text-white">
+          {sessionStorage.getItem("name")}
+        </Link>
+      ) : (
+        <Link to={`/Login`} className="nav-link text-white">
+          로그인
+        </Link>
+      )}
     </>
   );
 }

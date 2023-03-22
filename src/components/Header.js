@@ -33,6 +33,8 @@ const NavBarStyle = styled.div`
       justify-content: space-between;
       flex-wrap: wrap;
       flex-direction: row;
+      left: -17px;
+      position: relative;
       > .Navtop {
         @media (min-width: 768px) and (max-width: 991px) {
           padding: 15px 0;
@@ -58,8 +60,8 @@ const NavBarStyle = styled.div`
             border: none;
             cursor: pointer;
             /*  */
-            background-color: #4caf50;
-            color: white;
+            /* background-color: #4caf50; */
+            background-color: white;
             padding: 16px;
             font-size: 16px;
 
@@ -142,11 +144,14 @@ const NavBarStyle = styled.div`
               }
             }
           }
-          section.Hamberger-hover-menu a:hover{
-            background-color: #f1f1f1
+          section.Hamberger-hover-menu a:hover {
+            background-color: #f1f1f1;
           }
           > .wantedlogo {
-            display: block;
+            /* display: block; */
+            position: relative;
+            left: -13px;
+            top: 4px;
           }
         }
         .Navtoplogo:hover section.Hamberger-hover-menu {
@@ -382,23 +387,23 @@ function Header() {
                   height="14"
                 />
               </button>
-              {/* 메뉴호버시작 */}
-              <section className="Hamberger-hover-menu">
+              {/* 메뉴호버시작 에러로 일단보류*/}
+              {/* <section className="Hamberger-hover-menu">
                 <a href="/wdlist" className="alljob-grop">
                   <em>
                     <h2>직군 전체</h2>
                   </em>
-                </a>
-                {/* 아래부터 ul 태그시작 */}
-                <ul>
+                </a> */}
+              {/* 아래부터 ul 태그시작 */}
+              {/* <ul>
                   <li data-testid="category-item" className="hover-menu">
                     <a href="/wdlist/518" className="">
                       <em>개발</em>
                     </a>
-                  </li>
-                  {/* 아래부터 2차메뉴 시작 */}
-                  {/* <ul style="width: 800px;"> */}
-                  {/* <ul>
+                  </li> */}
+              {/* 아래부터 2차메뉴 시작 */}
+              {/* <ul style="width: 800px;"> */}
+              {/* <ul>
                     <li clasName="hovermenu-next">
                       <a href="/wdlist/518/" clasName="" aria-label="">
                         개발 전체
@@ -1008,8 +1013,8 @@ function Header() {
                       </svg>
                     </li>
                   </ul> */}
-                  ;{/*  */}
-                  <li data-testid="category-item" className="hover-menu">
+              {/*  */}
+              {/* <li data-testid="category-item" className="hover-menu">
                     <a href="/wdlist/507" className="">
                       <em>경영·비즈니스</em>
                     </a>
@@ -1111,9 +1116,9 @@ function Header() {
                         <span>프리랜서</span>
                       </div>
                     </a>
-                  </li>
-                </ul>
-              </section>
+                  </li> */}
+              {/* </ul>
+              </section> */}
               {/* 밑에서부터 2차메뉴 시작 */}
               {/* <section class="Explore_SubCategory__xIcAi"> */}
 
@@ -1200,9 +1205,9 @@ function Header() {
                     <g
                       fill="none"
                       fillRule="evenodd"
-                      // font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
-                      // font-size="9"
-                      // font-weight="500"
+                      fontFamily="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
+                      fontSize="9"
+                      fontWeight="500"
                     >
                       <g fill="#36F">
                         <g>
@@ -1259,9 +1264,9 @@ function Header() {
                     <g
                       fill="none"
                       fillRule="evenodd"
-                      // font-family="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
-                      // font-size="9"
-                      // font-weight="500"
+                      fontFamily="AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo"
+                      fontSize="9"
+                      fontWeight="500"
                     >
                       <g fill="#36F">
                         <g>

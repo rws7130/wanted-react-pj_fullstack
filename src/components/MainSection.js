@@ -6,6 +6,14 @@ import "./slick.css";
 import "./slick-theme.css";
 import Slider from "react-slick";
 import { Mainslider } from "./DummyData";
+import axios from "axios";
+import { InsightDummy } from "./common/InsightDummy";
+
+import Second from "./CardRendering/Second";
+import Third from "./CardRendering/Third";
+import Fourth from "./CardRendering/Fourth";
+import First from "./CardRendering/First";
+//
 
 const SectionStyle = styled.section`
   position: relative;
@@ -87,9 +95,7 @@ const SectionStyle = styled.section`
             /* .slick-slider.slick-initialized { */
             button.scroll-Snap-Button {
               white-space: nowrap;
-              color: #36f !important;
-              border-color: #36f !important;
-              display: -ms-flexbox !important;
+
               display: flex !important;
               padding: 9px 22px !important;
               font-weight: 600 !important;
@@ -97,26 +103,26 @@ const SectionStyle = styled.section`
               line-height: 146.7% !important;
               -ms-flex-negative: 0;
               flex-shrink: 0;
-              color: #8a8a8a !important;
-              border-color: #e1e2e4 !important;
+              color: #8a8a8a;
+              border-color: #e1e2e4;
               outline: none;
               scroll-snap-align: start;
-              height: 40px !important;
-              position: relative !important;
-              color: #36f;
-              background-color: #fff;
-              border: 1px solid #36f;
+              height: 40px;
               position: relative;
-              display: -ms-inline-flexbox;
+
+              background-color: #fff;
+              border: 1px solid;
+              position: relative;
+
               display: inline-flex;
-              -ms-flex-align: center;
+
               /* align-items: center; */
-              -ms-flex-pack: center;
+
               justify-content: center;
               vertical-align: middle;
               min-width: 64px;
               padding: 0 27px;
-              -webkit-box-sizing: border-box;
+
               box-sizing: border-box;
               border-radius: 25px;
               font-size: 16px;
@@ -124,24 +130,16 @@ const SectionStyle = styled.section`
               line-height: normal;
               /* border: none; */
               background-color: none;
-              cursor: pointer;
 
-              span.creator-Banner-close2 {
-                cursor: pointer;
-                svg.creator-Banner-svg {
-                  -webkit-user-select: none;
-                  -moz-user-select: none;
-                  -ms-user-select: none;
-                  user-select: none;
-                  width: 1em;
-                  height: 1em;
-                  display: inline-block;
-                  fill: currentColor;
-                  -ms-flex-negative: 0;
-                  flex-shrink: 0;
-                  font-size: inherit;
-                }
-              }
+              cursor: pointer;
+              /* &.active {
+                border-color: #36f !important;
+                color: #36f !important;
+              } */
+
+              /* span.creator-Banner-close2 {
+               
+              } */
             }
           }
         }
@@ -187,6 +185,8 @@ const SectionStyle = styled.section`
           top: 14px;
           color: #c4c4c4;
           font-size: 20px;
+          background: white;
+          border: white;
           span {
             cursor: pointer;
           }
@@ -197,6 +197,17 @@ const SectionStyle = styled.section`
             align-items: inherit;
             -ms-flex-pack: inherit;
             justify-content: inherit;
+            cursor: pointer;
+            svg.creator-Banner-svg {
+              user-select: none;
+              width: 1em;
+              height: 1em;
+              display: inline-block;
+              fill: currentColor;
+              -ms-flex-negative: 0;
+              flex-shrink: 0;
+              font-size: inherit;
+            }
           }
         }
         img.creator-Banner-img {
@@ -324,9 +335,10 @@ const SectionStyle = styled.section`
         width: 100%;
         padding-bottom: 70%;
         border-radius: 4px;
-        border: 1px solid rgba(0, 0, 0, 0.06);
+        /* border: 1px solid rgba(0, 0, 0, 0.06); */
         overflow: hidden;
-        img{
+        height: 318.3px;
+        img {
           width: 248.4px;
           height: 175px;
         }
@@ -364,7 +376,7 @@ const NextBtn = (props) => {
   );
 };
 
-export function MainSection() {
+const MainSection = () => {
   const settings = {
     prevArrow: <PreviousBtn />,
     nextArrow: <NextBtn />,
@@ -378,6 +390,143 @@ export function MainSection() {
     // centerMode:true,
     // centerPadding: "0px",
   };
+
+  //
+
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = () => {
+    // 👇️ toggle
+    setIsActive((current) => !current);
+  };
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // //   const [phoneNational, setPhoneNational] = useState("");
+  // const [phoneNumber, setPhoneNumber] = useState("");
+  // //   const [marketingAgreement, setMarketingAgreement] = useState("");
+
+  // async function save(event) {
+  //   event.preventDefault();
+  //   try {
+  //     await axios.post("https://prod.wanted-a.online/insights/tags", {
+  //       //  http://localhost:8085/api/v1/employee/save
+  //       classificationName: tagname,
+  //       tagname: tagname,
+
+  //       // password: password,
+  //       // phoneNational: phoneNational,
+  //       // phoneNumber: phoneNumber,
+  //       // marketingAgreement: marketingAgreement,
+  //     });
+  //     alert("Employee Registation Successfully");
+  //   } catch (err) {
+  //     alert(err);
+  //   }
+  // }
+
+  // 버튼클릭시 색상변환 state
+  // const [color, setColor] = useState(false);
+  //
+  // const [flag, setFlag] = useState(true);
+
+  // const handleClick = () => {
+  //   setFlag(!flag);
+  // };
+  //
+  const [insights, setinsights] = useState([]);
+
+  const [insights3, setinsights3] = useState([]);
+  const [insights4, setinsights4] = useState([]);
+
+  //
+
+  //  클릭시 컴포넌트 가져오는코드 시작
+  const [content, setContent] = useState();
+
+  const handleClickButton = (e) => {
+    const { name } = e.target;
+    setContent(name);
+  };
+
+  const selectComponent = {
+    first: <First />,
+    second: <Second />,
+    third: <Third />,
+    fourth: <Fourth />,
+    // fifth: <Fifth />,
+  };
+
+  console.log(content);
+
+  //
+  const [active, setActive] = useState("FirstCard");
+
+  //
+  // useEffect(() => {
+  //   (async () => {
+  //   })();
+  // }, []);
+  // let [btnActive, setBtnActive] = useState("");
+
+  // const toggleActive = (e) => {
+  //   setBtnActive((prev) => {
+  //     return e.target.value;
+  //   });
+  // };
+
+  //
+  // useEffect(() => {
+  //   (async () => {
+  //     // axios({
+  //     //     method:'GET',
+  //     //     url:'https://jsonplaceholder.typicode.com/photos'
+  //     // }).then(response => setinsights(response.data))
+
+  //     // axios.get('https://jsonplaceholder.typicode.com/photos')
+  //     //      .then(response => setinsights(response.data))
+
+  //     try {
+  //       const response = await axios.get("/api/insights?tags=취업/이직");
+  //       setinsights(response.data.result);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   })();
+  // }, []);
+
+  //
+
+  // useEffect(() => {
+  //   (async () => {
+
+  //   })();
+  // }, []); 기억하기
+
+  //   useEffect(() => {
+  //     myFunction();
+  // });
+  //   useEffect(() => {
+  //     async function fetchData() { // You can await here
+  //     const response = await MyAPI.getData(someId);
+  //     // ...
+  //     } fetchData();
+  //  }, [someId]); // Or [] if effect doesn't need props or state
+
+  // //
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     // You can await here
+  //     // const response = await MyAPI.getData(someId);
+
+  //     const response = await axios.get("/insights?tags=");
+  //     setinsights(response.data.result);
+  //     // ...
+  //   }
+  //   fetchData();
+  // }, []); // Or [] if effect doesn't need props or state
+
   return (
     <SectionStyle>
       <div className="section-wrapper">
@@ -435,82 +584,167 @@ export function MainSection() {
             <div className="scroll-Snap">
               <div className="scroll-Snap-Hide">
                 <Slider {...settings}>
-                  <button className="scroll-Snap-Button">
+                  {/* <div key={data.id}></div> */}
+                  <button
+                    className="scroll-Snap-Button"
+                    onClick={() => setActive("FirstCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">
-                      취업/이직
+                      {/* {data.category} */}취업/이직
                     </span>
                   </button>
-                  <button className="scroll-Snap-Button">
+
+                  <button
+                    className="scroll-Snap-Button"
+                    onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">
                       라이프스타일
                     </span>
                   </button>
-                  <button className="scroll-Snap-Button">
+
+                  {/*  */}
+
+                  <button
+                    className="scroll-Snap-Button"
+                    onClick={() => setActive("ThirdCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">
                       커리어고민
                     </span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  {/*  */}
+
+                  <button
+                    className="scroll-Snap-Button"
+                    onClick={() => setActive("FourthCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">
                       조직문화
                     </span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  {/*  */}
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
+                    <span className="Button_Button__label__1Kk0v">
+                      취업/이직
+                    </span>
+                  </button>
+                  {/*  */}
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">IT/기술</span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  {/*  */}
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">
                       인간관계
                     </span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  {/*  */}
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">리더십</span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">
                       회사생활
                     </span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">MD</span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">
                       콘텐츠 제작
                     </span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">노무</span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">UX/UI</span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">
                       서비스기획
                     </span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">HR</span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">마케팅</span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">브랜딩</span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">데이터</span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">개발</span>
                   </button>
-                  <button className="scroll-Snap-Button">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">
                       경영/전략
                     </span>
                   </button>
-                  <button className="scroll-Snap-Button InterestCategoryItem_InterestCategoryItem__selected__ljT8K">
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
+                    <span className="Button_Button__label__1Kk0v">개발</span>
+                  </button>
+                  <button
+                    className="scroll-Snap-Button"
+                    // onClick={() => setActive("SecondCard")}
+                  >
                     <span className="Button_Button__label__1Kk0v">디자인</span>
                   </button>
                 </Slider>
@@ -591,53 +825,28 @@ export function MainSection() {
       </div>
       {/* 밑에서부터 메인중앙카드시작 */}
       <ul className="Career-insight-card">
-        {Mainslider.map((item) => (
-          <li className="insight-card-li">
-            <a
-              data-attribute-id="home__video__click"
-              data-video-title="나의 커리어는 어디로 가는가"
-              data-video-id="279"
-              data-video-key="tJVFQM0G"
-              data-video-speaker="한국인성컨설팅&amp;마인드클리닉 노주선"
-              data-interest-tag="Career Advice, Career Search, Work Productivity"
-              href="/career-video/279"
-            >
-              <div className="Thumbnail">
-                {/* <img
-                className="Thumbnail_Thumbnail__image__YDGUQ Thumbnail_Thumbnail__image__cover__dufIU"
-                src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fwanted.video.kr.kollus.com%2Fkr%2Fsnapshot%2Fwanted%2F20220516%2F17%2F35388040.jpg&amp;w=750&amp;q=100"
-                alt="나의 커리어는 어디로 가는가"
-                loading="lazy"
-              /> */}{" "}
-                <img src={item.linkImg} />
-              </div>
-              {/* <div className="Section_Section__4rZ99 Section_Section__column__LhUoQ">
-              <p className="Title_Title__jSBXy Title_Title__responsive___Ygbx">
-                나의 커리어는 어디로 가는가
-              </p>
-              <p className="Description_Description__L7nDT Description_Description__responsive__7KWHM card-molecule-description">
-                커리어를 이대로 쌓아가도 괜찮을지 고민하는 직장인의 실제 사연을
-                통해 ‘직장생활의 리얼리티’를 들여다보고, 현실을 극복하기 위한
-                방법에 대해 이야기합니다. 지금보다 더 행복하고 즐거운 직장생활을
-                위해, 그리고 나의 연봉과 커리어의 성장을 위해!
-              </p>
-            </div> */}
-              <div className="Section_Section__4rZ99 Section_Section__row__YdUxO Profile_Profile__kphpD card-molecule-profile">
-                {/* <img
-                src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Ffavicon%2F144x144.png&amp;w=60&amp;q=90"
-                className="Profile_Profile__image__HZzTQ"
-              />
-              <span className="Profile_Profile__text__8jImU Profile_Profile__text__responsive__yv2iD">
-                한국인성컨설팅&amp;마인드클리닉 노주선
-              </span> */}
-              </div>
-            </a>
-          </li>
-        ))}
+        {active === "FirstCard" && <First />}
+        {active === "SecondCard" && <Second />}
+        {active === "ThirdCard" && <Third />}
+        {active === "FourthCard" && <Fourth />}
+
+        {/* 2번째 */}
+
+        {/* {content && <div>{selectComponent[content]}</div>} */}
       </ul>
       ;
     </SectionStyle>
   );
-}
+};
 
 export default MainSection;
+// const Container = styled.div`
+//   ${(props) => props.theme.flex("center", "center")}
+//   height: 20vh;
+// `;
+
+// const Content = styled.div`
+//   ${(props) => props.theme.flex("center", "center")}
+//   width: 100%;
+//   height: 100%;
+// `;

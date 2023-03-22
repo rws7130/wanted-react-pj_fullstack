@@ -11,14 +11,12 @@ import Login1 from "./components/Login1.js";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import LoginInputPage from "./pages/LoginInputPage";
-
-
-
-
+// import Deletefile from "./components/Deletefile";
 
 function App() {
-  return (
-    <BrowserRouter>
+  
+  return (  
+    <BrowserRouter> 
       <Routes>
         <Route path="/" element={<Main />} exact />
         <Route path="/Login" element={<Login />} />
@@ -28,7 +26,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/Login1" element={<Login1 />} />
-        <Route path="/LoginInputPage" element={<LoginInputPage />} />
+        <Route path="/LoginInputPage" element={<LoginInputPage />} /> 
+        {/* <Route path="/Deletefile" element={<Deletefile />} /> */}
       </Routes>
     </BrowserRouter>
   );

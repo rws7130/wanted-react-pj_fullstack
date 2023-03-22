@@ -293,6 +293,7 @@ function Slider() {
       >
         <FontAwesomeIcon icon={faChevronLeft} />
       </LeftButton>
+      {/*  */}
       <Row
         key={index}
         onMouseDown={onMouseDown}
@@ -400,7 +401,7 @@ function Slider() {
           ></PrivewImg>
         </Container>
       </Row>
-
+{/*  */}
       <RightButton
         style={{
           right:
@@ -418,6 +419,7 @@ function Slider() {
         {/* <i class="fas fa-chevron-right"></i> */}
         <FontAwesomeIcon icon={faChevronRight} />
       </RightButton>
+      {/*  */}
     </Wrapper>
   );
 }

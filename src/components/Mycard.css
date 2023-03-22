@@ -1,0 +1,10 @@
+.mycard {
+    min-width: 522px;
+    max-width: 273px;
+
+    height: 273px;
+    background-color: black;
+    margin: 8px;
+    color: white;
+    border-radius: 4px;
+}

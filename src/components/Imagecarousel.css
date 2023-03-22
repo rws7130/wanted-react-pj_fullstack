@@ -1,0 +1,64 @@
+.product-carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 26px;
+}
+
+.product-container {
+  /* padding: 0 10px; */
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  /* max-width: 1060px; */
+  /* width: 87.72%;  */
+}
+
+.pre-btn,
+.next-btn {
+  border: none;
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.next-btn {
+  right: 0;
+}
+
+.next-btn p,
+.pre-btn p {
+  font-size: 16px;
+
+  box-shadow: 0px 0px 10px 1px black;
+  border-radius: 10px;
+
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  border-radius: 50%;
+  /*  */
+  border: 1px solid #e1e2e3;
+
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+
+  color: #767676;
+}
+
+.pre-btn p {
+  background: rgba(255, 255, 255, 0.8)
+    url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
+    13px scroll no-repeat;
+}
+
+.next-btn p {
+  background: rgba(255, 255, 255, 0.8)
+    url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
+    13px scroll no-repeat;
+  transform: rotate(-180deg);
+}

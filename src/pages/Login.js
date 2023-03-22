@@ -436,45 +436,52 @@ const PageLogin = styled.div`
 `;
 function Login() {
   const navigate = useNavigate();
-  const goMain = () => {
-    navigate("/Main");
-  };
+  // const goMain = () => {
+  //   navigate("/Main");
+  // };
   // const goApple = () => {
   //   navigate("/Login");
   // };
   // const goGoogle = () => {
   //   navigate("/Login");
   // };
+  // const realEmail = "riscmp@naver.com";
 
-  async function login(event) {
-    event.preventDefault();
-    try {
-      await axios
-        .post("https://prod.wanted-a.online/users/logIn", {    //Post 명세서 확인
-          email: email,
-          password: password,
-        })
-        .then(
-          (res) => {
-            console.log(res.data);
+  // async function login(event) {
+  //   event.preventDefault();
+  //   try {
+  //     await axios
+  //       .post("/api/users/:email", {
+  //         //Post 명세서 확인
+  //         email: email,
+  //         // password: password,
+  //       })
+  //       .then(
+  //         (res) => {
+  //           console.log(res.data);
 
-            if (res.data.message == "Email not exits") {
-              alert("Email not exits");
-            } else if (res.data.message == "Login Success") {
-              navigate("/Main");
-            } else {
-              alert("Incorrect Email and Password not match");
-            }
-          },
-          // (fail) => {
-          //   console.error(fail); // Error!
-          // }
-        );
-    } catch (err) {
-      alert(err);
-    }
-  }
+  //           if (res.data.message == "Email not exits") {
+  //             alert("Email not exits");
+  //           } else if (res.data.message == "Login Success") {
+  //             navigate("/LoginInputPage");
+  //           } else {
+  //             alert("Incorrect Email and Password not match");
+  //           }
+  //         }
+  //         // (fail) => {
+  //         //   console.error(fail); // Error!
+  //         // }
+  //       );
+  //   } catch (err) {
+  //     alert(err);
+  //   }
+  // }
   //
+
+
+
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [valid, setValid] = useState(false);
@@ -482,28 +489,66 @@ function Login() {
   const [passvalid, pasetValid] = useState(false);
 
   // 여기에 있는 id와 연동해서 valid 상태가 변경 되어야 함
-  let [id, setId] = useState("");
-  let [pw, setPw] = useState("");
+  // let [id, setId] = useState("");
+  // let [pw, setPw] = useState("");
+
   const [button, setButton] = useState(true);
+
+  // 새로 작성해보는 코드 시작
+  const [inputId, setInputId] = useState("");
+  // const [inputPw, setInputPw] = useState("");
+  
+    const handleInputId = (e) => {
+    setInputId(e.target.value);
+  };
+
+  // const handleInputPw = (e) => {
+  //   setInputPw(e.target.value);
+  // };
+  
+  <input
+    type="email"
+    className="form-control"
+    placeholder="Enter email"
+    name="input_id"
+    value={inputId}
+    onChange={handleInputId}
+  />
+  
+  // <input
+  //   type="password"
+  //   className="form-control"
+  //   placeholder="Enter password"
+  //   name="input_pw"
+  //   value={inputPw}
+  //   onChange={handleInputPw}
+  // />
+
+  // 새로 작성해보는 코드 끝 
 
   useEffect(() => {
     email.includes("@") && email.length >= 5
       ? setButton(false)
       : setButton(true);
-  }, [id, pw]); // id와 pw가 변경될 때마다 실행 , 이부분 고쳐서 실행됨
+  }, [email]); // id와 pw가 변경될 때마다 실행 , 이부분 고쳐서 실행됨
 
   useEffect(() => {
     setValid(email.includes("@")); // id에 @가 포함된 경우 valid를 true로, 아니면 false로 변경
   }, [email]); // id가 바뀌었을 때
 
-  // useEffect(() => {
-  //   setValid2(email.length >= 5); // pw의 길이가 5 이상인 경우 valid를 true로, 아니면 false로 변경
-  // }, [pw]); // pw가 바뀌었을 때
+  useEffect(() => {
+    setValid2(email.length >= 5); // pw의 길이가 5 이상인 경우 valid를 true로, 아니면 false로 변경
+  }, [email]); // pw가 바뀌었을 때
 
   // const navigate = useNavigate();
   const goToLoginInput = () => {
     window.localStorage.setItem("authorized", true); // 인증 처리
     navigate("/LoginInputPage");
+  };
+
+  const goToLoginRegisterPage = () => {
+    window.localStorage.setItem("authorized", true); // 인증 처리
+    navigate("/LoginRegisterPage");
   };
   // const realId = "riscmp@naver.com";
   // const realPw = "12345678";
@@ -532,6 +577,13 @@ function Login() {
       setValid2(true);
     }
   }, [passvalid]);
+
+  // 
+  useEffect(() => {
+    axios.post('/api/users/logIn')
+    .then(response => console.log(response.data))
+}, [])
+  
   return (
     <>
       <PageLogin>
@@ -583,23 +635,42 @@ function Login() {
                     data-testid="Input_email"
                     className="form-input"
                     defaultValue=""
-                    value={email}
-                    onChange={(event) => {
-                      setEmail(event.target.value);
-                    }}
-                    onKeyUp={Login}
-                    disabled={email}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      goToLoginInput();
-                    }}
+                    value={inputId}
+                    onChange={handleInputId}
+                    // onChange={(event) => {
+                    //   setEmail(event.target.value);
+                    // }}
+                    // onKeyUp={Login}
+
+                    // onClick={(e) => {
+                    //   e.stopPropagation();
+                    //   goToLoginInput();
+                    // }}{(e) => {
+                    //   if (realemail == email) {
+                    //      {
+                    //       e.stopPropagation();
+                    //       goToMain();
+                    //     }
+                    //   } else {
+                    //     alert("올바른 이메일을 입력해주세요.");
+                    //   }
+                    // }}
                   />
 
                   <button
                     type="submit"
                     className="form-email-button"
-                    disabled=""
-                    onClick={login}
+                    disabled={button}
+                    // onClick={Login}
+                    onClick
+                    //   if (realEmail == email) {
+                    //     Login.stopPropagation();
+                    //     goToLoginInput();
+                    //   } else {
+                    //     Login.stopPropagation();
+                    //     goToLoginRegisterPage();
+                    //   }
+                    // }}
                   >
                     <span
                       data-testid="Typography"

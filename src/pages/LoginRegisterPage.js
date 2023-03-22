@@ -5,7 +5,8 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Login from "./Login";
-
+import Checkbox from "../components/common/Checkbox";
+import CheckboxGroup from "../components/common/CheckboxGroup";
 const LoginRegisterStyle = styled.div`
   width: 100%;
   height: 100%;
@@ -445,17 +446,23 @@ function LoginRegisterPage() {
   //   } else {
 
   //   }
+
+  //체크박스 시작
+  const [service, setService] = useState(false);
+  const [marketing, setMarketing] = useState(false);
+  //
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-//   const [phoneNational, setPhoneNational] = useState("");
+  //   const [phoneNational, setPhoneNational] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-//   const [marketingAgreement, setMarketingAgreement] = useState("");
+  //   const [marketingAgreement, setMarketingAgreement] = useState("");
 
   async function save(event) {
     event.preventDefault();
     try {
-      await axios.post("https://prod.wanted-a.online/users", {
+      await axios.post("/api/users", {
         //  http://localhost:8085/api/v1/employee/save
         name: name,
         email: email,
@@ -465,6 +472,7 @@ function LoginRegisterPage() {
         // marketingAgreement: marketingAgreement,
       });
       alert("Employee Registation Successfully");
+      navigate("/");
     } catch (err) {
       alert(err);
     }
@@ -482,9 +490,9 @@ function LoginRegisterPage() {
                 onClick={() =>
                   window.confirm(
                     "회원가입을 취소하고 이전 화면으로 되돌아갑니다. 계속하시겠어요?"
-                  ) ? (
-                    navigate(-1)
-                  ) : undefined
+                  )
+                    ? navigate(-1)
+                    : undefined
                 }
               >
                 <p data-testid="Typography" className="cancel-btn-ptag">
@@ -802,14 +810,19 @@ function LoginRegisterPage() {
                 영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합해 8자 이상
                 16자 이하로 입력해주세요.
               </p>
+              {/* <CheckboxGroup> */}
               <div className="all-agree">
-                <div className="agree-check"></div>
-                <input
+                {/* <div className="agree-check"></div> */}
+                {/* <input
                   type="checkbox"
                   name="is_agree_all"
                   data-testid="TermsOption_checkbox_is_agree_all"
+                /> */}
+                <Checkbox
+                  checked={service}
+                  onChange={setService}
                   className="agree-check-input"
-                />
+                ></Checkbox>
                 <div className="agree-check-div">
                   <p data-testid="Typography" className="agree-check-ptag">
                     전체 동의
@@ -818,13 +831,18 @@ function LoginRegisterPage() {
               </div>
               <hr className="login-divider" />
               <div className="divider-div">
-                <div className="agree-check"></div>
-                <input
+                {/* <div className="agree-check"></div> */}
+                {/* <input
                   type="checkbox"
                   name="is_above_14"
                   data-testid="TermsOption_checkbox_is_above_14"
+                  
+                /> */}{" "}
+                <Checkbox
                   className="agree-check-input"
-                />
+                  checked={marketing}
+                  onChange={setMarketing}
+                ></Checkbox>
                 <div className="agree-check-div">
                   <p data-testid="Typography" className="checkbox-select">
                     만 14세 이상입니다. (필수)
@@ -832,13 +850,18 @@ function LoginRegisterPage() {
                 </div>
               </div>
               <div className="divider-div">
-                <div className="agree-check"></div>
-                <input
+                {/* <div className="agree-check"></div> */}
+                {/* <input
                   type="checkbox"
                   name="is_terms_conditions"
                   data-testid="TermsOption_checkbox_is_terms_conditions"
                   className="agree-check-input"
-                />
+                /> */}
+                <Checkbox
+                  className="agree-check-input"
+                  checked={marketing}
+                  onChange={setMarketing}
+                ></Checkbox>
                 <div className="agree-check-div">
                   <p data-testid="Typography" className="checkbox-select">
                     원티드 이용약관 동의 (필수)
@@ -854,13 +877,18 @@ function LoginRegisterPage() {
                 </a>
               </div>
               <div className="divider-div">
-                <div className="agree-check"></div>
-                <input
+                {/* <div className="agree-check"></div> */}
+                {/* <input
                   type="checkbox"
                   name="is_collect_information"
                   data-testid="TermsOption_checkbox_is_collect_information"
                   className="agree-check-input"
-                />
+                /> */}
+                <Checkbox
+                  className="agree-check-input"
+                  checked={marketing}
+                  onChange={setMarketing}
+                ></Checkbox>
                 <div className="agree-check-div">
                   <p data-testid="Typography" className="checkbox-select">
                     원티드 개인정보 수집 및 이용 동의 (필수)
@@ -876,29 +904,36 @@ function LoginRegisterPage() {
                 </a>
               </div>
               <div className="divider-div">
-                <div className="agree-check"></div>
-                <input
+                {/* <div className="agree-check"></div> */}
+                {/* <input
                   type="checkbox"
                   name="is_accept_event_all"
                   data-testid="TermsOption_checkbox_is_accept_event_all"
                   className="agree-check-input"
-                />
+                /> */}
+                <Checkbox
+                  className="agree-check-input"
+                  checked={marketing}
+                  onChange={setMarketing}
+                ></Checkbox>
                 <div className="agree-check-div">
                   <p data-testid="Typography" className="checkbox-select">
                     채용 소식, 커리어 콘텐츠, 이벤트 등 원티드 맞춤 정보 받기
                   </p>
                 </div>
               </div>
+              {/* </CheckboxGroup> */}
               <div className="login-label-check">
-                <label className="label-check">
+                <label className="label-check"  for="chkBox">
                   <input
                     data-testid="TermsCheck_checkicon_accept_marketing_email"
                     name="accept_marketing_email"
                     type="checkbox"
+                    id="chkBox"
                   />
                   <span className="select-span">
                     <svg viewBox="0 0 12 8" className="select-svg">
-                      <path
+                      <path 
                         d="M1.5 4L4.5 7L10.5 1"
                         stroke=""
                         fill="none"
@@ -912,12 +947,14 @@ function LoginRegisterPage() {
                     이메일
                   </p>
                 </label>
-                <label className="label-check">
+                <label className="label-check" for="chkBox">
                   <input
                     data-testid="TermsCheck_checkicon_accept_marketing_push"
                     name="accept_marketing_push"
                     type="checkbox"
+                    id="chkBox"
                   />
+                  
                   <span className="select-span">
                     <svg viewBox="0 0 12 8" className="select-svg">
                       <path
@@ -934,11 +971,12 @@ function LoginRegisterPage() {
                     앱 푸시
                   </p>
                 </label>
-                <label className="label-check">
+                <label className="label-check" for="chkBox">
                   <input
                     data-testid="TermsCheck_checkicon_accept_marketing_sms"
                     name="accept_marketing_sms"
                     type="checkbox"
+                    id="chkBox"
                   />
                   <span className="select-span">
                     <svg viewBox="0 0 12 8" className="select-svg">
