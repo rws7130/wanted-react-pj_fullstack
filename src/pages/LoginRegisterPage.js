@@ -455,21 +455,22 @@ function LoginRegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //   const [phoneNational, setPhoneNational] = useState("");
+    const [phoneNational, setPhoneNational] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  //   const [marketingAgreement, setMarketingAgreement] = useState("");
+    const [marketingAgreement, setMarketingAgreement] = useState("");
 
   async function save(event) {
     event.preventDefault();
     try {
       await axios.post("/api/users", {
         //  http://localhost:8085/api/v1/employee/save
+        //  http://localhost:3000/api/users
         name: name,
         email: email,
         password: password,
-        // phoneNational: phoneNational,
+        phoneNational: phoneNational,
         phoneNumber: phoneNumber,
-        // marketingAgreement: marketingAgreement,
+        marketingAgreement: marketingAgreement,
       });
       alert("Employee Registation Successfully");
       navigate("/");

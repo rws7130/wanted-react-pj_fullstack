@@ -5,7 +5,7 @@ import styles from "./MainSection.module.css";
 import "./slick.css";
 import "./slick-theme.css";
 import Slider from "react-slick";
-import { Mainslider } from "./DummyData";
+// import { Mainslider } from "./DummyData";
 import axios from "axios";
 import { InsightDummy } from "./common/InsightDummy";
 
@@ -246,16 +246,16 @@ const SectionStyle = styled.section`
           color: #36f;
           /*  */
           position: relative;
-          display: -ms-inline-flexbox;
+          right: -2px;
           display: inline-flex;
-          -ms-flex-align: center;
+
           align-items: center;
-          -ms-flex-pack: center;
+
           justify-content: center;
           vertical-align: middle;
           min-width: 64px;
-          padding: 0 27px;
-          -webkit-box-sizing: border-box;
+          /* padding: 0 27px;
+         */
           box-sizing: border-box;
           border-radius: 25px;
           font-size: 16px;
@@ -266,29 +266,22 @@ const SectionStyle = styled.section`
           cursor: pointer;
           span.creator-Banner-label {
             width: 100%;
-            font-size: inherit;
-            font-weight: inherit;
-            display: inherit;
-            -ms-flex-align: inherit;
-            align-items: inherit;
-            -ms-flex-pack: inherit;
-            justify-content: inherit;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
             color: inherit;
             span.creator-Banner-endicon {
               margin-top: -2px;
               margin-right: -1px;
               margin-left: 2px;
+              position: relative;
+              top: 1.2px;
               span.creator-Banner-endroot {
-                display: -ms-flexbox;
-                display: flex;
                 -ms-flex-align: inherit;
                 align-items: inherit;
                 -ms-flex-pack: inherit;
                 justify-content: inherit;
-                span.creator-Banner-endsvg {
-                  -webkit-user-select: none;
-                  -moz-user-select: none;
-                  -ms-user-select: none;
+                svg.creator-Banner-endsvg {
                   user-select: none;
                   width: 1em;
                   height: 1em;

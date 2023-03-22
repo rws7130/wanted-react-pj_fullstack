@@ -447,41 +447,46 @@ function Login() {
   // };
   // const realEmail = "riscmp@naver.com";
 
-  // async function login(event) {
-  //   event.preventDefault();
-  //   try {
-  //     await axios
-  //       .post("/api/users/:email", {
-  //         //Post 명세서 확인
-  //         email: email,
-  //         // password: password,
-  //       })
-  //       .then(
-  //         (res) => {
-  //           console.log(res.data);
+  async function login(event) {
+    event.preventDefault();
+    try {
+      await axios
+        .post("/api/users/:email", {
+          //Post 명세서 확인
 
-  //           if (res.data.message == "Email not exits") {
-  //             alert("Email not exits");
-  //           } else if (res.data.message == "Login Success") {
-  //             navigate("/LoginInputPage");
-  //           } else {
-  //             alert("Incorrect Email and Password not match");
-  //           }
-  //         }
-  //         // (fail) => {
-  //         //   console.error(fail); // Error!
-  //         // }
-  //       );
-  //   } catch (err) {
-  //     alert(err);
-  //   }
-  // }
-  //
+          // password: password,  
 
+          email: email,
+          // password: password,
+          // phoneNational: phoneNational,
+          // phoneNumber: phoneNumber,
+          // marketingAgreement: marketingAgreement,
+        })
+        .then(
+          (res) => {
+            console.log(res.data);
 
+            if (res.data.message == "Email not exits") {
+              alert("Email not exits");
+            } else if (res.data.message == "Login Success") {
+              navigate("/LoginInputPage");
+            } else {
+              alert("Incorrect Email not match");
+            }
+          },
+          (fail) => {
+            console.error(fail); // Error!
+          }
+        );
+    } catch (err) {
+      alert(err);
+    }
+  }
 
-
-
+  const [marketingAgreement, setmarketingAgreement] = useState("");
+  const [phoneNational, setphoneNational] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [valid, setValid] = useState(false);
@@ -497,15 +502,15 @@ function Login() {
   // 새로 작성해보는 코드 시작
   const [inputId, setInputId] = useState("");
   // const [inputPw, setInputPw] = useState("");
-  
-    const handleInputId = (e) => {
+
+  const handleInputId = (e) => {
     setInputId(e.target.value);
   };
 
   // const handleInputPw = (e) => {
   //   setInputPw(e.target.value);
   // };
-  
+
   <input
     type="email"
     className="form-control"
@@ -513,8 +518,8 @@ function Login() {
     name="input_id"
     value={inputId}
     onChange={handleInputId}
-  />
-  
+  />;
+
   // <input
   //   type="password"
   //   className="form-control"
@@ -524,7 +529,7 @@ function Login() {
   //   onChange={handleInputPw}
   // />
 
-  // 새로 작성해보는 코드 끝 
+  // 새로 작성해보는 코드 끝
 
   useEffect(() => {
     email.includes("@") && email.length >= 5
@@ -578,12 +583,13 @@ function Login() {
     }
   }, [passvalid]);
 
-  // 
-  useEffect(() => {
-    axios.post('/api/users/logIn')
-    .then(response => console.log(response.data))
-}, [])
-  
+  //
+  // useEffect(() => {
+  //   axios
+  //     .post("/api/users/logIn")
+  //     .then((response) => console.log(response.data));
+  // }, []);
+
   return (
     <>
       <PageLogin>
@@ -635,11 +641,11 @@ function Login() {
                     data-testid="Input_email"
                     className="form-input"
                     defaultValue=""
-                    value={inputId}
-                    onChange={handleInputId}
-                    // onChange={(event) => {
-                    //   setEmail(event.target.value);
-                    // }}
+                    value={email}
+                    // onChange={handleInputId}
+                    onChange={(event) => {
+                      setEmail(event.target.value);
+                    }}
                     // onKeyUp={Login}
 
                     // onClick={(e) => {
@@ -661,8 +667,8 @@ function Login() {
                     type="submit"
                     className="form-email-button"
                     disabled={button}
-                    // onClick={Login}
-                    onClick
+                    onClick={login}
+                    // onClick
                     //   if (realEmail == email) {
                     //     Login.stopPropagation();
                     //     goToLoginInput();

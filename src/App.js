@@ -24,8 +24,8 @@ function App() {
         <Route path="/LoginRegisterPage" element={<LoginRegisterPage />} />
         {/* <Route path="/LoginModal" element={<LoginModal />} /> */}
         <Route path="/home" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/Login1" element={<Login1 />} />
+        {/* <Route path="/register" element={<Register />} /> */}
+        {/* <Route path="/Login1" element={<Login1 />} /> */}
         <Route path="/LoginInputPage" element={<LoginInputPage />} /> 
         {/* <Route path="/Deletefile" element={<Deletefile />} /> */}
       </Routes>

@@ -54,6 +54,8 @@
   background: rgba(255, 255, 255, 0.8)
     url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
     13px scroll no-repeat;
+  position: relative;
+  left: -35px;
 }
 
 .next-btn p {
@@ -61,4 +63,6 @@
     url(https://img.cgv.co.kr/R2014/images/common/ico/arrowL.png) center/9px
     13px scroll no-repeat;
   transform: rotate(-180deg);
+  position: relative;
+  left: 8px;
 }
