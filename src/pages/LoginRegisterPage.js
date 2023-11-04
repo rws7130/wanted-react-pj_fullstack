@@ -746,11 +746,11 @@ function LoginRegisterPage() {
                     type="text"
                     placeholder="(예시) 01013245768"
                     name="mobile"
-                    data-testid="Input_mobile"
+                    data-testid="Input_mobile" 
                     className="register-input"
                     value={phoneNumber}
                     onChange={(event) => {
-                      setPhoneNumber(event.target.value);
+                      setPhoneNumber(event.target.value); 
                     }}
                   />
                   <button
