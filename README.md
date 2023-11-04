@@ -1,7 +1,5 @@
-참고> https://softsquared.notion.site/fef0e0faed5e451f9b103ee326e48cee
 
-
-# 새벽의 개발일지
+# 개발일지
 
 ## 2023-03-04 진행상황 
 
